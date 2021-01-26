@@ -15,7 +15,7 @@ Note that this is simply the current list, and as new engines/frameworks become 
 - Godot
 - JanusWeb
 - LÖVR
-- Nunustudio
+- nunuStudio
 - p5.xr
 - Playcanvas
 - Sumerian
