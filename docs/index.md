@@ -1,37 +1,17 @@
-## Welcome to GitHub Pages
+# WebXR Showcase
 
-You can use the [editor on GitHub](https://github.com/msub2/webxr-showcase/edit/main/docs/index.md) to maintain and preview the content for your website in Markdown files.
+This repository serves to demonstrate the similarities and differences between different WebXR engines, frameworks, and libraries by constructing near-identical projects between all of them. The site will be organized by projects, from which you can view a demo and the implementation of that project in any of the following:
 
-Whenever you commit to this repository, GitHub Pages will run [Jekyll](https://jekyllrb.com/) to rebuild the pages in your site, from the content in your Markdown files.
-
-### Markdown
-
-Markdown is a lightweight and easy-to-use syntax for styling your writing. It includes conventions for
-
-```markdown
-Syntax highlighted code block
-
-# Header 1
-## Header 2
-### Header 3
-
-- Bulleted
-- List
-
-1. Numbered
-2. List
-
-**Bold** and _Italic_ and `Code` text
-
-[Link](url) and ![Image](src)
-```
-
-For more details see [GitHub Flavored Markdown](https://guides.github.com/features/mastering-markdown/).
-
-### Jekyll Themes
-
-Your Pages site will use the layout and styles from the Jekyll theme you have selected in your [repository settings](https://github.com/msub2/webxr-showcase/settings). The name of this theme is saved in the Jekyll `_config.yml` configuration file.
-
-### Support or Contact
-
-Having trouble with Pages? Check out our [documentation](https://docs.github.com/categories/github-pages-basics/) or [contact support](https://support.github.com/contact) and we’ll help you sort it out.
+- A-Frame
+- babylon.js
+- Godot
+- JanusWeb
+- LOVR
+- nunuStudio
+- p5.xr
+- Playcanvas
+- Sumerian
+- three.js
+- Unity
+- Verge3D
+- Wonderland Engine
