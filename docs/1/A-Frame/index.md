@@ -1,6 +1,6 @@
 # 1- Hello World (A-Frame)
 
-<iframe src="../src/A-Frame/index.html"></iframe>
+<iframe src="../src/A-Frame/index.html" width="800" height="600"></iframe>
 
 ## Source Code
 
