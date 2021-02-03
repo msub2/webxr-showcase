@@ -4,7 +4,7 @@
 
 ## Source Code
 
-```js
+```html
 <!DOCTYPE html>
 <html>
 
