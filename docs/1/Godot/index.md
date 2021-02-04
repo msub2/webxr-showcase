@@ -1,6 +1,6 @@
 # 1- Hello World (Godot)
 
-<iframe src="../deploy/Godot/index.html" width="800" height="600"></iframe>
+<iframe src="../deploy/Godot/index.html" width="1024" height="768"></iframe>
 
 ## Source Code
 
