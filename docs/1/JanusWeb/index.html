@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <link rel="stylesheet" href="../../main.css">
+    <title>1 - Hello World (JanusWeb)</title>
+</head>
+
+<body>
+    <div class="main">
+        <h1>1 - Hello World (JanusWeb)</h1>
+        <iframe src="../src/JanusWeb/index.html" width="800" height="600"></iframe>
+        <h2>Source Code</h2>
+        <h3>index.html</h3>
+        <pre>
+            <code>
+                &lt;html&gt;
+
+                &lt;head&gt;
+                    &lt;title&gt;Hello World (JanusWeb)&lt;/title&gt;
+                    &lt;meta charset="utf-8"&gt;
+                &lt;/head&gt;
+
+                &lt;body&gt;
+                    &lt;!--
+                        &lt;FireBoxRoom&gt;
+                            &lt;Assets&gt;
+                            &lt;/Assets&gt;
+                            &lt;Room&gt;
+                                &lt;Object id="plane" pos="0 0 0" rotation="-90 0 0" col="green" scale="10 10 1" collision_id="plane" lighting="false" /&gt;
+                            &lt;/Room&gt;
+                        &lt;/FireBoxRoom&gt;
+                    --&gt;
+                    &lt;script src="https://web.janusvr.com/janusweb.js"&gt;&lt;/script&gt;
+                    &lt;script&gt;elation.janusweb.init({ url: document.location.href })&lt;/script&gt;
+                &lt;/body&gt;
+
+                &lt;/html&gt;
+            </code>
+        </pre>
+        <br />
+        <h3>Alternate implementation of index.html</h3>
+        <pre>
+            <code>
+                &lt;!DOCTYPE html&gt;
+                &lt;html&gt;
+
+                &lt;head&gt;
+                    &lt;title&gt;Hello World (JanusWeb)&lt;/title&gt;
+                    &lt;script src="https://web.janusxr.org/janusweb.js"&gt;&lt;/script&gt;
+                &lt;/head&gt;
+
+                &lt;body&gt;
+                    &lt;janus-viewer&gt;
+                        &lt;FireBoxRoom&gt;
+                            &lt;Assets&gt;
+                            &lt;/Assets&gt;
+                            &lt;Room&gt;
+                                &lt;Object id="plane" pos="0 0 0" rotation="-90 0 0" col="green" scale="10 10 1" collision_id="plane"
+                                    lighting="false" /&gt;
+                            &lt;/Room&gt;
+                        &lt;/FireBoxRoom&gt;
+                    &lt;/janus-viewer&gt;
+                &lt;/body&gt;
+
+                &lt;/html&gt;
+            </code>
+        </pre>
+    </div>
+</body>
+
+</html>

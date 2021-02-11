@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <link rel="stylesheet" href="../../main.css">
+    <title>1 - Hello World (LOVR)</title>
+</head>
+
+<body>
+    <div class="main">
+        <h1>1 - Hello World (LOVR)</h1>
+        <iframe src="../deploy/LOVR/index.html" width="800" height="600"></iframe>
+        <h2>Source Code</h2>
+        <h3>main.lua</h3>
+        <pre>
+            <code>
+                function lovr.draw()
+                lovr.graphics.setBackgroundColor(0, 0, 1, 1)
+
+                lovr.graphics.setColor(0, 1, 0, 1)
+                lovr.graphics.plane('fill', 0, 0, 0, 10, 10, -1.571, 1, 0, 0)
+                end
+            </code>
+        </pre>
+    </div>
+</body>
+
+</html>

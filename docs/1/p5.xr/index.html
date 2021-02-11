@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <link rel="stylesheet" href="../../main.css">
+    <title>1 - Hello World (p5.xr)</title>
+</head>
+
+<body>
+    <div class="main">
+        <h1>1 - Hello World (p5.xr)</h1>
+        <iframe src="../src/p5.xr/index.html" width="800" height="600"></iframe>
+        <h2>Editor</h2>
+        <p>This can also be viewed in the
+            <a href="https://editor.p5js.org/msub2/sketches/U2WxDJySH">p5.js online editor.</a>
+        </p>
+        <h2>Source Code</h2>
+        <h3>index.html</h3>
+        <pre>
+                <code>
+                    &lt;!DOCTYPE html&gt;
+                    &lt;html&gt;
+
+                    &lt;head&gt;
+                        &lt;script src="https://cdn.jsdelivr.net/npm/p5@1.2.0/lib/p5.js"&gt;&lt;/script&gt;
+                        &lt;script src="https://github.com/stalgiag/p5.xr/releases/download/0.3.2-rc.3/p5xr.min.js"&gt;&lt;/script&gt;
+                        &lt;title&gt;Hello World (p5.xr)&lt;/title&gt;
+                    &lt;/head&gt;
+
+                    &lt;body&gt;
+                        &lt;script&gt;
+                            function preload() {
+                                createVRCanvas();
+                            }
+
+                            function setup() {
+                                setVRBackgroundColor(0, 0, 255);
+                                angleMode(DEGREES);
+                            }
+
+                            function draw() {
+                                rotateX(-90);
+                                fill(0, 255, 0);
+                                noStroke();
+                                plane(10, 10);
+                            }
+                        &lt;/script&gt;
+                    &lt;/body&gt;
+
+                    &lt;/html&gt;
+                </code>
+            </pre>
+    </div>
+</body>
+
+</html>
