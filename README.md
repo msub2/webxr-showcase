@@ -10,16 +10,16 @@ In cases where a project for an engine/framework cannot easily be added to Githu
 
 Note that this is simply the current list, and as new engines/frameworks become prevalent they may be added here as well.
 
-- A-Frame
-- babylon.js
-- Godot
-- JanusWeb
-- LÖVR
-- nunuStudio
-- p5.xr
-- Playcanvas
-- Sumerian
-- three.js
-- Unity
-- Verge3D
-- Wonderland
+- [A-Frame](https://aframe.io/)
+- [babylon.js](https://www.babylonjs.com/)
+- [Godot](https://godotengine.org/)
+- [JanusWeb](https://github.com/jbaicoianu/janusweb)
+- [LÖVR](https://lovr.org/)
+- [nunuStudio](https://www.nunustudio.org/)
+- [p5.xr](https://p5xr.org/#/)
+- [Playcanvas](https://playcanvas.com/)
+- [Sumerian](https://aws.amazon.com/sumerian/)
+- [three.js](https://threejs.org/)
+- [Unity](https://unity.com/)
+- [Verge3D](https://www.soft8soft.com/verge3d/)
+- [Wonderland Engine](https://wonderlandengine.com/)
