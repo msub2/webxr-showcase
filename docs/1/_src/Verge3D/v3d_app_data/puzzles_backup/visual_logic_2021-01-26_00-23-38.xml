@@ -1,0 +1,35 @@
+<xml xmlns="http://www.w3.org/1999/xhtml">
+  <tab name="init" type="InitTab" active="false" scrollx="875" scrolly="431" scale="0.9"></tab>
+  <tab name="main" type="MainTab" active="true" scrollx="924" scrolly="536" scale="0.9">
+    <block xmlns="https://developers.google.com/blockly/xml" type="whenClicked" id="S+|O;=#TLt/+(Ym=:qhH" x="-550" y="-350">
+      <mutation xmlns="http://www.w3.org/1999/xhtml" adveventoptions="false" enableifmissed="false"></mutation>
+      <field name="X_RAY">FALSE</field>
+      <field name="DOUBLE_CLICK">FALSE</field>
+      <field name="LEFT_BUTTON">TRUE</field>
+      <field name="MIDDLE_BUTTON">TRUE</field>
+      <field name="RIGHT_BUTTON">TRUE</field>
+      <value name="VALUE">
+        <shadow type="objectList" id="]dkuR9S=9lDw^1y{6y+j">
+          <field name="FIELDNAME">&lt;none&gt;</field>
+        </shadow>
+      </value>
+      <statement name="DO">
+        <block type="enterVRMode" id="9]/.4tcnq[4J:(IL?l7K">
+          <field name="REF_SPACE">SITTING</field>
+        </block>
+      </statement>
+    </block>
+    <block xmlns="https://developers.google.com/blockly/xml" type="checkVRMode" id="WZ2.ZM3mKg0]PG(v+lR;" x="-890" y="-310">
+      <statement name="DO_UNAVAIL">
+        <block type="hide" id="NDGF^@sSXz2K9coV/0R!">
+          <value name="VALUE">
+            <shadow type="objectList" id="m/Q=EP6,%qdE#L#U)9_3">
+              <field name="FIELDNAME">&lt;none&gt;</field>
+            </shadow>
+          </value>
+        </block>
+      </statement>
+    </block>
+  </tab>
+  <editorsettings viewport-x="1134" viewport-y="28" viewport-w="768" viewport-h="469" viewport-hidden="false" toolbox-library-mode="false" toolbox-minimized-mode="false"></editorsettings>
+</xml>

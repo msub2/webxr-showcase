@@ -1,3 +1,8 @@
+body {
+    color:white;
+    background-color:darkslategray;
+}
+
 div {
     text-align: center;
 }
@@ -7,6 +12,8 @@ h3 {
 }
 
 pre {
+    background-color: black;
+    color:white;
     text-align: left;
 }
 
