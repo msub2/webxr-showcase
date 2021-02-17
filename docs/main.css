@@ -11,6 +11,11 @@ h3 {
     text-align: left;
 }
 
+iframe {
+    width: 66vw;
+    height: calc(66vw * 0.5625); /* 16:9 */
+}
+
 pre {
     background-color: black;
     color:white;
