@@ -18,6 +18,11 @@ details {
     margin:auto;
 }
 
+.header {
+    text-align: center;
+    width:100%;
+}
+
 .source {
     max-width: 66%;
     text-align: left;
