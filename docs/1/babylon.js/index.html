@@ -7,6 +7,14 @@
 </head>
 
 <body>
+    <div class="header">
+        <h1 id="title">m₂</h1>
+        <a href="/">Home</a>
+        <a href="/silk-brush/">Silk Brush</a>
+        (<a href="/silk-brush/files/">Files</a>)
+        <a href="/webxr-showcase/">WebXR Showcase</a>
+        <hr />
+    </div>
     <div class="main">
         <h1>1 - Hello World (babylon.js)</h1>
         <iframe src="../_src/babylon.js/index.html"></iframe>
@@ -15,54 +23,12 @@
             <a href="https: //playground.babylonjs.com/#KKD4NB">here.</a>
         </p>
         <h2>Source Code</h2>
-        <h3>index.html</h3>
-        <pre>
-            <code>
-                &lt;!DOCTYPE html&gt;
-                &lt;html&gt;
-
-                &lt;head&gt;
-                    &lt;script src="https://cdn.babylonjs.com/babylon.js"&gt;&lt;/script&gt;
-                    &lt;title&gt;Hello World (babylon.js)&lt;/title&gt;
-                &lt;/head&gt;
-
-                &lt;body&gt;
-                    &lt;canvas id="renderCanvas"&gt;
-                        &lt;script&gt;
-                            const canvas = document.getElementById("renderCanvas");
-                            canvas.style.width = "100%";
-                            canvas.style.height = "100%";
-                            const engine = new BABYLON.Engine(canvas, true);
-
-                            const createScene = (async function () {
-                                scene = new BABYLON.Scene(engine);
-                                scene.clearColor = new BABYLON.Color3.Blue();
-
-                                var camera = new BABYLON.FreeCamera("camera", new BABYLON.Vector3(0, 0, 0), scene);
-
-                                var light = new BABYLON.DirectionalLight("DirectionalLight", new BABYLON.Vector3(0, -1, 0), scene);
-
-                                const groundMaterial = new BABYLON.StandardMaterial("groundMaterial", scene);
-                                groundMaterial.diffuseColor = new BABYLON.Color3.Green();
-
-                                const ground = BABYLON.MeshBuilder.CreateGround("ground", { width: 10, height: 10 });
-                                ground.material = groundMaterial;
-
-                                const xrHelper = await scene.createDefaultXRExperienceAsync();
-                            })();
-
-                            engine.runRenderLoop(() =&gt; {
-                                scene.render();
-                            });
-                        &lt;/script&gt;
-                    &lt;/canvas&gt;
-                &lt;/body&gt;
-
-                &lt;/html&gt;
-            </code>
-        </pre>
+        <details class="source">
+            <summary>index.html</summary>
+            <script
+                src="https://emgithub.com/embed.js?target=https%3A%2F%2Fgithub.com%2Fmsub2%2Fwebxr-showcase%2Fblob%2Fmain%2Fdocs%2F1%2F_src%2Fbabylon.js%2Findex.html&style=github&showBorder=on&showLineNumbers=on"></script>
+        </details>
     </div>
-
 </body>
 
 </html>

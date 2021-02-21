@@ -7,21 +7,23 @@
 </head>
 
 <body>
+    <div class="header">
+        <h1 id="title">m₂</h1>
+        <a href="/">Home</a>
+        <a href="/silk-brush/">Silk Brush</a>
+        (<a href="/silk-brush/files/">Files</a>)
+        <a href="/webxr-showcase/">WebXR Showcase</a>
+        <hr />
+    </div>
     <div class="main">
         <h1>1 - Hello World (LOVR)</h1>
         <iframe src="../_deploy/LOVR/lovr.html"></iframe>
         <h2>Source Code</h2>
-        <h3>main.lua</h3>
-        <pre>
-            <code>
-                function lovr.draw()
-                lovr.graphics.setBackgroundColor(0, 0, 1, 1)
-
-                lovr.graphics.setColor(0, 1, 0, 1)
-                lovr.graphics.plane('fill', 0, 0, 0, 10, 10, -1.571, 1, 0, 0)
-                end
-            </code>
-        </pre>
+        <details class="source">
+            <summary>main.lua</summary>
+            <script
+                src="https://emgithub.com/embed.js?target=https%3A%2F%2Fgithub.com%2Fmsub2%2Fwebxr-showcase%2Fblob%2Fmain%2Fdocs%2F1%2F_src%2FLOVR%2Fmain.lua&style=github&showBorder=on&showLineNumbers=on"></script>
+        </details>
     </div>
 </body>
 

@@ -7,52 +7,23 @@
 </head>
 
 <body>
+    <div class="header">
+        <h1 id="title">m₂</h1>
+        <a href="/">Home</a>
+        <a href="/silk-brush/">Silk Brush</a>
+        (<a href="/silk-brush/files/">Files</a>)
+        <a href="/webxr-showcase/">WebXR Showcase</a>
+        <hr />
+    </div>
     <div class="main">
         <h1>1 - Hello World (three.js)</h1>
         <iframe src="../_src/three.js/index.html"></iframe>
         <h2>Source Code</h2>
-        <h3>index.html</h3>
-        <pre>
-            <code>
-                <!DOCTYPE html>
-                &lt;html&gt;
-
-                &lt;head&gt;
-                    &lt;script src="https://threejs.org/build/three.js"&gt;&lt;/script&gt;
-                    &lt;title&gt;Hello World (three.js)&lt;/title&gt;
-                &lt;/head&gt;
-
-                &lt;body&gt;
-                    &lt;script type="module"&gt;
-                        import { VRButton } from "https://cdn.jsdelivr.net/npm/three@0.119.1/examples/jsm/webxr/VRButton.min.js";
-
-                        const scene = new THREE.Scene();
-                        scene.background = new THREE.Color('blue');
-
-                        const camera = new THREE.PerspectiveCamera(75, window.innerWidth / window.innerHeight, 0.1, 1000);
-
-                        const renderer = new THREE.WebGLRenderer();
-                        renderer.setSize(window.innerWidth, window.innerHeight);
-                        document.body.appendChild(renderer.domElement);
-
-                        const geometry = new THREE.PlaneGeometry(10, 10);
-                        const material = new THREE.MeshBasicMaterial({ color: 'green' });
-                        const ground = new THREE.Mesh(geometry, material);
-                        ground.rotateX(THREE.MathUtils.degToRad(-90));
-                        scene.add(ground);
-
-                        document.body.appendChild(VRButton.createButton(renderer));
-                        renderer.xr.enabled = true;
-
-                        renderer.setAnimationLoop(() => {
-                            renderer.render(scene, camera);
-                        })
-                    &lt;/script&gt;
-                &lt;/body&gt;
-
-                &lt;/html&gt;
-            </code>
-        </pre>
+        <details class="source">
+            <summary>index.html</summary>
+            <script
+                src="https://emgithub.com/embed.js?target=https%3A%2F%2Fgithub.com%2Fmsub2%2Fwebxr-showcase%2Fblob%2Fmain%2Fdocs%2F1%2F_src%2Fthree.js%2Findex.html&style=github&showBorder=on&showLineNumbers=on"></script>
+        </details>
     </div>
 </body>
 

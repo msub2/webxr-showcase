@@ -7,6 +7,14 @@
 </head>
 
 <body>
+    <div class="header">
+        <h1 id="title">m₂</h1>
+        <a href="/">Home</a>
+        <a href="/silk-brush/">Silk Brush</a>
+        (<a href="/silk-brush/files/">Files</a>)
+        <a href="/webxr-showcase/">WebXR Showcase</a>
+        <hr />
+    </div>
     <div class="main">
         <h1>1 - Hello World (p5.xr)</h1>
         <iframe src="../_src/p5.xr/index.html"></iframe>
@@ -15,41 +23,11 @@
             <a href="https://editor.p5js.org/msub2/sketches/U2WxDJySH">p5.js online editor.</a>
         </p>
         <h2>Source Code</h2>
-        <h3>index.html</h3>
-        <pre>
-                <code>
-                    &lt;!DOCTYPE html&gt;
-                    &lt;html&gt;
-
-                    &lt;head&gt;
-                        &lt;script src="https://cdn.jsdelivr.net/npm/p5@1.2.0/lib/p5.js"&gt;&lt;/script&gt;
-                        &lt;script src="https://github.com/stalgiag/p5.xr/releases/download/0.3.2-rc.3/p5xr.min.js"&gt;&lt;/script&gt;
-                        &lt;title&gt;Hello World (p5.xr)&lt;/title&gt;
-                    &lt;/head&gt;
-
-                    &lt;body&gt;
-                        &lt;script&gt;
-                            function preload() {
-                                createVRCanvas();
-                            }
-
-                            function setup() {
-                                setVRBackgroundColor(0, 0, 255);
-                                angleMode(DEGREES);
-                            }
-
-                            function draw() {
-                                rotateX(-90);
-                                fill(0, 255, 0);
-                                noStroke();
-                                plane(10, 10);
-                            }
-                        &lt;/script&gt;
-                    &lt;/body&gt;
-
-                    &lt;/html&gt;
-                </code>
-            </pre>
+        <details class="source">
+            <summary>index.html</summary>
+            <script
+                src="https://emgithub.com/embed.js?target=https%3A%2F%2Fgithub.com%2Fmsub2%2Fwebxr-showcase%2Fblob%2Fmain%2Fdocs%2F1%2F_src%2Fp5.xr%2Findex.html&style=github&showBorder=on&showLineNumbers=on"></script>
+        </details>
     </div>
 </body>
 
