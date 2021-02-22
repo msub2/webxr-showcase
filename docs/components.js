@@ -45,6 +45,7 @@ class M2Header extends HTMLElement {
             p {
                 display: inline;
                 margin-left: -.5em;
+                margin-right: 1em;
             }
         `;
 
