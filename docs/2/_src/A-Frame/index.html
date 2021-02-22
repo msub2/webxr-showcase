@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <script src="https://aframe.io/releases/1.2.0/aframe.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/gl-matrix@3.3.0/gl-matrix-min.js"></script>
+    <script src="controller.js"></script>
+    <title>First Steps (A-Frame)</title>
+</head>
+
+<body>
+    <a-scene>
+        <a-plane rotation="-90 0 0" color="green" height="10" width="10"></a-plane>
+        <a-sky color="blue"></a-sky>
+        <a-entity id="player">
+            <a-camera id="head" wasd-controls look-controls></a-camera>
+            <a-entity id="leftHand" hand-controls="hand: left" smooth-locomotion="active: true"></a-entity>
+            <a-entity id="rightHand" hand-controls="hand: right"></a-entity>
+        </a-entity>
+    </a-scene>
+</body>
+
+</html>
