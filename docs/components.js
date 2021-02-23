@@ -34,6 +34,12 @@ class M2Header extends HTMLElement {
         // Styling
         const style = document.createElement('style');
         style.textContent = `
+            a {
+                color: #dd4a4a;
+                text-decoration: none;
+                font-size: 1.5em;
+            }
+        
             h1 {
                 font-size: 4em;
             }
@@ -46,6 +52,11 @@ class M2Header extends HTMLElement {
                 display: inline;
                 margin-left: -.5em;
                 margin-right: 1em;
+                font-size: 1.5em;
+            }
+
+            p > a {
+                font-size: 1em;
             }
         `;
 

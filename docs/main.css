@@ -5,6 +5,10 @@ body {
     font-family: Arial, Helvetica, sans-serif;
 }
 
+a, a:visited, a:hover, a:active {
+    color: #dd4a4a;
+}
+
 iframe {
     width: 66vw;
     height: calc(66vw * 0.5625); /* 16:9 */
