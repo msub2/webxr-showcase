@@ -27,6 +27,16 @@ details {
     width:100%;
 }
 
+.previous {
+    float: left;
+    font-size: 1.5em;
+}
+
+.next {
+    float: right;
+    font-size: 1.5em;
+}
+
 .source {
     max-width: 66%;
     text-align: left;

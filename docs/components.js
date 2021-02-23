@@ -28,7 +28,7 @@ class M2Header extends HTMLElement {
 
         // WebXR Showcase
         const showcase = document.createElement('a');
-        showcase.setAttribute('href', "/webxr-showcase");
+        showcase.setAttribute('href', "/webxr-showcase/");
         showcase.innerText = 'WebXR Showcase';
 
         // Styling
@@ -72,3 +72,78 @@ class M2Header extends HTMLElement {
     }
 }
 customElements.define('m2-header', M2Header);
+
+
+const PROJECT_NAMES = [
+    "0 - Setup",
+    "1 - Hello World",
+    "2 - First Steps",
+    "3 - On The Move",
+    "4 - Hands On"
+];
+
+class PreviousProject extends HTMLElement {
+    constructor() {
+        super();
+
+        const shadowRoot = this.attachShadow({ mode: 'open' });
+
+        const link = document.createElement('a');
+
+        let urlElements = window.location.href.split('/');
+        let currentProject = Number(urlElements[3]);
+
+        // Styling
+        const style = document.createElement('style');
+        style.textContent = `
+            a, a:visited, a:hover, a:active {
+                color: #dd4a4a;
+            }
+        `;
+
+        if (currentProject > 0) {
+            urlElements[3] = String(currentProject - 1);
+            link.href = urlElements.join('/');
+            link.innerText = PROJECT_NAMES[currentProject - 1];
+            shadowRoot.append(style);
+            shadowRoot.appendChild(link);
+        }
+        else {
+            return;
+        }
+    }
+}
+customElements.define('previous-project', PreviousProject);
+
+class NextProject extends HTMLElement {
+    constructor() {
+        super();
+
+        const shadowRoot = this.attachShadow({ mode: 'open' });
+
+        const link = document.createElement('a');
+
+        let urlElements = window.location.href.split('/');
+        let currentProject = Number(urlElements[3]);
+
+        // Styling
+        const style = document.createElement('style');
+        style.textContent = `
+            a, a:visited, a:hover, a:active {
+                color: #dd4a4a;
+            }
+        `;
+
+        if (currentProject > 0) { // Determin cutoff later
+            urlElements[3] = String(currentProject + 1);
+            link.href = urlElements.join('/');
+            link.innerText = PROJECT_NAMES[currentProject + 1];
+            shadowRoot.append(style);
+            shadowRoot.appendChild(link);
+        }
+        else {
+            return;
+        }
+    }
+}
+customElements.define('next-project', NextProject);
