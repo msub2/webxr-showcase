@@ -94,7 +94,7 @@ class PreviousProject extends HTMLElement {
         const link = document.createElement('a');
 
         let urlElements = window.location.href.split('/');
-        let currentProject = Number(urlElements[4]);
+        let currentProject = Number(urlElements[urlElements.length - 3]);
 
         // Styling
         const style = document.createElement('style');
@@ -105,7 +105,7 @@ class PreviousProject extends HTMLElement {
         `;
 
         if (currentProject > 0) {
-            urlElements[4] = String(currentProject - 1);
+            urlElements[urlElements.length - 3] = String(currentProject - 1);
             link.href = urlElements.join('/');
             link.innerText = PROJECT_NAMES[currentProject - 1];
             shadowRoot.append(style);
@@ -128,7 +128,7 @@ class NextProject extends HTMLElement {
         const link = document.createElement('a');
 
         let urlElements = window.location.href.split('/');
-        let currentProject = Number(urlElements[4]);
+        let currentProject = Number(urlElements[urlElements.length - 3]);
 
         // Styling
         const style = document.createElement('style');
@@ -139,7 +139,7 @@ class NextProject extends HTMLElement {
         `;
 
         if (currentProject >= 0) { // Determine cutoff later
-            urlElements[4] = String(currentProject + 1);
+            urlElements[urlElements.length - 3] = String(currentProject + 1);
             link.href = urlElements.join('/');
             link.innerText = PROJECT_NAMES[currentProject + 1];
             shadowRoot.append(style);
