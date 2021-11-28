@@ -9,6 +9,14 @@ a, a:visited, a:hover, a:active {
     color: #dd4a4a;
 }
 
+code {
+    text-align: left;
+}
+
+h1 {
+    clear: both;
+}
+
 iframe {
     width: 66vw;
     height: calc(66vw * 0.5625); /* 16:9 */
@@ -27,6 +35,11 @@ details {
     width:100%;
 }
 
+.main {
+    width: 66vw;
+    margin: auto;
+}
+
 .previous {
     float: left;
     font-size: 1.5em;
@@ -38,6 +51,5 @@ details {
 }
 
 .source {
-    max-width: 66%;
     text-align: left;
 }

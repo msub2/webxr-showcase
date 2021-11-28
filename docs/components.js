@@ -1,3 +1,6 @@
+/**
+ * Site Navigation
+ */
 class M2Header extends HTMLElement {
     constructor() {
         super();
@@ -75,7 +78,7 @@ customElements.define('m2-header', M2Header);
 
 
 const PROJECT_NAMES = [
-    "0 - Setup",
+    "0 - Getting Started",
     "1 - Hello World",
     "2 - First Steps",
     "3 - On The Move",
@@ -135,7 +138,7 @@ class NextProject extends HTMLElement {
             }
         `;
 
-        if (currentProject > 0) { // Determine cutoff later
+        if (currentProject >= 0) { // Determine cutoff later
             urlElements[4] = String(currentProject + 1);
             link.href = urlElements.join('/');
             link.innerText = PROJECT_NAMES[currentProject + 1];
@@ -148,3 +151,31 @@ class NextProject extends HTMLElement {
     }
 }
 customElements.define('next-project', NextProject);
+
+/**
+ * Latest script tags
+ */
+LATEST_SCRIPT_TAGS = {
+    'aframe': '<script src="https://aframe.io/releases/1.2.0/aframe.min.js"></script>',
+    'babylon': '<script src="https://cdn.babylonjs.com/babylon.js"></script>',
+    'janusweb': '<script src="https://web.janusvr.com/janusweb.js"></script>'
+};
+
+class LatestScriptTag extends HTMLElement {
+    constructor() {
+        super();
+
+        const shadowRoot = this.attachShadow({ mode: 'open' });
+
+        const wrapper = document.createElement('pre');
+        const tag = document.createElement('code');
+        wrapper.appendChild(tag);
+        
+        shadowRoot.append(wrapper);
+    }
+    connectedCallback() {
+        let tag = this.shadowRoot.children[0];
+        tag.innerText = LATEST_SCRIPT_TAGS[this.getAttribute('for')];
+    }
+}
+customElements.define('latest-script-tag', LatestScriptTag);
