@@ -170,6 +170,8 @@ LATEST_SCRIPT_TAGS = {
     '<script src="https://aframe.io/releases/1.2.0/aframe.min.js"></script>',
   babylon: '<script src="https://cdn.babylonjs.com/babylon.js"></script>',
   janusweb: '<script src="https://web.janusvr.com/janusweb.js"></script>',
+  p5xr: '<script src="https://cdn.jsdelivr.net/npm/p5@1.4.0/lib/p5.js"></script>\n<script src="https://cdn.jsdelivr.net/npm/p5.xr@0.4.0/dist/p5xr.min.js"></script>',
+  threejs: `<script type="module">\nimport * as THREE from 'https://cdn.skypack.dev/three@0.135.0';\n</script>`
 };
 
 class LatestScriptTag extends HTMLElement {
@@ -190,3 +192,91 @@ class LatestScriptTag extends HTMLElement {
   }
 }
 customElements.define('latest-script-tag', LatestScriptTag);
+
+/**
+ * Content Loading
+ */
+CURRENT_CONTENT = null;
+
+class ContentButton {
+  constructor(content) {
+    const wrapper = document.createElement('li');
+    const button = document.createElement('a');
+    button.innerText = content;
+    button.onclick = () => {
+      if (CURRENT_CONTENT == content) return;
+      CURRENT_CONTENT = content;
+      const template = document.getElementById(content).content.cloneNode(true);
+      const contentDiv = document.getElementById('content');
+      contentDiv.innerHTML = '';
+      contentDiv.appendChild(template);
+    }
+    wrapper.appendChild(button);
+    return wrapper;
+  }
+}
+
+class ContentSwitch extends HTMLElement {
+  constructor() {
+    super();
+
+    const shadowRoot = this.attachShadow({ mode: 'open' });
+
+    const wrapper = document.createElement('ul');
+    wrapper.appendChild(new ContentButton('A-Frame'));
+    wrapper.appendChild(new ContentButton('babylon.js'));
+    wrapper.appendChild(new ContentButton('Godot'));
+    wrapper.appendChild(new ContentButton('JanusWeb'));
+    wrapper.appendChild(new ContentButton('LÖVR'));
+    wrapper.appendChild(new ContentButton('nunuStudio'));
+    wrapper.appendChild(new ContentButton('p5.xr'));
+    wrapper.appendChild(new ContentButton('Playcanvas'));
+    wrapper.appendChild(new ContentButton('Sumerian'));
+    wrapper.appendChild(new ContentButton('three.js'));
+    wrapper.appendChild(new ContentButton('Unity'));
+    wrapper.appendChild(new ContentButton('Verge3D'));
+    wrapper.appendChild(new ContentButton('Wonderland Engine'));
+
+    // Styling
+    const style = document.createElement('style');
+    style.textContent = `
+            ul {
+              list-style-type: none;
+              margin: 0;
+              padding: 0;
+              width: 200px;
+              background-color: #222;
+              float: left;
+              position: absolute;
+              
+            }
+
+            li {
+              border-right: 4px solid #dd4a4a;
+            }
+
+            li:hover {
+              border-right: 6px solid #ffffff;
+            }
+            
+            li a {
+              display: block;
+              color: #0d0d0d;
+              padding: 8px 16px;
+              text-decoration: none;
+              color: #dd4a4a
+            }
+            
+            /* Change the link color on hover */
+            li a:hover {
+              background-color: #555;
+              color: white;
+              cursor: pointer;
+            }
+        `;
+
+    shadowRoot.append(style);
+    shadowRoot.append(wrapper);
+  }
+}
+customElements.define('content-switch', ContentSwitch);

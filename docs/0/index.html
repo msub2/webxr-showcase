@@ -3,10 +3,11 @@
   <head>
     <link rel="stylesheet" href="../main.css" />
     <script src="../components.js"></script>
-    <title>0 - Getting Started (A-Frame)</title>
+    <title>0 - Getting Started</title>
   </head>
   <body>
     <m2-header></m2-header>
+    <content-switch></content-switch>
     <div class="main">
       <h1>0 - Getting Started</h1>
       <p>
@@ -18,30 +19,172 @@
         preferred editor feel free to use that instead.
       </p>
       <p>
-        For some of the options listed here, you may not necessarily even need a separate
+        For some web frameworks, you may not necessarily even need a separate
         code editor. If it's purely based on HTML and JavaScript, you can use online services
         like <a href="https://glitch.com">Glitch</a> or <a href="https://codepen.io">Codepen</a>
         that let you host and edit web projects directly on their site.
       </p>
-      <p>
-        For anything beyond this, refer to your
-        engine/framework/library of choice before going forward.
-      </p>
-      <ul>
-        <li><a href="A-Frame/">A-Frame</a></li>
-        <li><a href="babylon.js/">babylon.js</a></li>
-        <li><a href="Godot/">Godot</a></li>
-        <li><a href="JanusWeb/">JanusWeb</a></li>
-        <li><a href="LOVR/">LÖVR</a></li>
-        <!--<li><a href="nunuStudio/">nunuStudio</a></li>-->
-        <li><a href="p5.xr/">p5.xr</a></li>
-        <li><a href="Playcanvas/">Playcanvas</a></li>
-        <li><a href="Sumerian/">Sumerian</a></li>
-        <li><a href="three.js/">three.js</a></li>
-        <li><a href="Unity/">Unity</a></li>
-        <li><a href="Verge3D/">Verge3D</a></li>
-        <li><a href="Wonderland/">Wonderland Engine</a></li>
-      </ul>
+      <div id="content"></div>
+
+      <template id="A-Frame">
+        <p>
+          To get started with A-Frame, all you need to do is load A-Frame
+          through a &lt;script&gt; tag. You can copy and paste the
+          latest version below:
+        </p>
+        <latest-script-tag for="aframe"></latest-script-tag>
+        <p>If you're using Node.js, you can add it through NPM:</p>
+        <code>npm install aframe</code>
+        <p>
+          With that out of the way, we can move on to creating our Hello World in
+          A-Frame!
+        </p>
+      </template>
+
+      <template id="babylon.js">
+        <p>
+          To get started with babylon.js, all you need to do is include
+          babylon.js through a &lt;script&gt; tag. You can copy and paste the
+          latest version below:
+        </p>
+        <latest-script-tag for="babylon"></latest-script-tag>
+        <p>If you're using Node.js, you can add it through NPM:</p>
+        <code>npm install babylonjs</code>
+        <p>
+          With that out of the way, we can move on to creating our Hello World in
+          babylon.js!
+        </p>
+      </template>
+
+      <template id="Godot">
+        <p>
+          To get started with Godot, you first need to download the engine, which
+          you can get at the official site
+          <a href="https://godotengine.org/download">here</a>. You just need the
+          standard version.
+        </p>
+        <p>
+          With that out of the way, we can move on to creating our Hello World in
+          Godot!
+        </p>
+      </template>
+
+      <template id="JanusWeb">
+        <p>
+          To get started with JanusWeb, all that's needed is to include
+          janusweb.js through a &lt;script&gt; tag. You can copy and paste the
+          latest one below:
+        </p>
+        <latest-script-tag for="janusweb"></latest-script-tag>
+        <p>
+          With that out of the way, we can move on to creating our Hello World in
+          JanusWeb!
+        </p>
+      </template>
+
+      <template id="LÖVR">
+        <p>
+          To get started with LÖVR, you first need to download the framework, which you can get
+          at the official site <a href="https://lovr.org/downloads">here</a>.
+        </p>
+        <p>
+          In order to serve LÖVR content on the web, you'll also need an archiver like WinZip, 
+          7-Zip, or WinRAR to bundle your app's contents together, as well as some generated files
+          for the HTML and JavaScript. While you can generate these files yourself by following
+          the instructions <a href="https://lovr.org/docs/Compiling">here</a>, for simplicity
+          I've pre-generated the files myself based on the latest stable build, which you can
+          download <a href="#">here</a>.
+        </p>
+        <p>With that out of the way, we can move on to creating our Hello World in LÖVR!</p>
+      </template>
+
+      <template id="nunuStudio">
+        <p>
+          To get started with nunuStudio, all you actually need is a web browser, as it has both
+          a native and a web-based editor. While you can access both versions of the editor
+          <a href="https://www.nunustudio.org/download">here</a>, I suggest just going with the 
+          web editor, as it is more likely to be up-to-date.
+        </p>
+        <p>With that out of the way, we can move on to creating our Hello World in nunuStudio!</p>
+      </template>
+
+      <template id="p5.xr">
+        <p>
+          To get started with p5.xr, all you need to do is include both p5.js and p5.xr in
+          &lt;script&gt; tags. You can copy and paste the latest version of both below:
+        </p>
+        <latest-script-tag for="p5xr"></latest-script-tag>
+        <p>With that out of the way, we can move on to creating our Hello World in p5.xr!</p>
+      </template>
+
+      <template id="Playcanvas">
+        <p>
+          To get started with Playcanvas, you first need to create an account on the
+          <a href="https://playcanvas.com/">Playcanvas website</a>. Once you do, you'll be
+          able to create Playcanvas projects in their entirely web-based editor. It's also
+          possible to create Playcanvas projects without using the web editor, but this will
+          be covered more in the future.
+        </p>
+        <p>With that out of the way, we can move on to creating our Hello World in Playcanvas!</p>
+      </template>
+
+      <template id="Sumerian">
+        <p>
+          To get started with Sumerian, you'll need to create an 
+          <a href="https://aws.amazon.com/">Amazon Web Services</a> account. Once you do, you'll
+          be able to create Sumerian projects.
+        </p>
+        <p>With that out of the way, we can move on to creating our Hello World in Sumerian!</p>
+      </template>
+
+      <template id="three.js">
+        <p>
+          To get started with three.js, you can load it through a script tag, but you'll need to
+          load it with type="module", as three.js uses ES modules. You can place this &lt;script&gt;
+          tag in your &lt;body&gt; to begin:
+        </p>
+        <latest-script-tag for="threejs"></latest-script-tag>
+        <p>If you're using Node.js, you can add it through NPM:</p>
+        <code>npm install three</code>
+        <p>With that out of the way, we can move on to creating our Hello World in three.js!</p>
+      </template>
+
+      <template id="Unity">
+        <p>
+          To get started with Unity, download Unity Hub from the
+          <a href="https://unity.com/download">official website.</a> Once it's installed,
+          select a version of Unity to install, making sure you add WebGL support before initiating the install. 
+          These examples will use the latest LTS version (currently Unity 2020), but you should be able to 
+          recreate these projects on newer or older versions as well, as long as they are newer than Unity 2019.
+        </p>
+        <p>
+          Once we have Unity Hub and a version of Unity installed with WebGL support, we need to use an exporter.
+          The original WebXR exporter for Unity was previously maintained by Mozilla, but this is sadly no longer
+          the case. Instead, we must rely on packages from the community. Two popular choices are
+          <a href="https://github.com/De-Panther/unity-webxr-export">this one</a> from De-Panther and 
+          <a href="https://github.com/Rufus31415/Simple-WebXR-Unity">this one</a> from Rufus31415. These examples
+          will use De-Panther's, but feel free to experiment and see which one you prefer.
+        </p>
+        <p>With that out of the way, we can move on to creating our Hello World in Unity!</p>
+      </template>
+
+      <template id="Verge3D">
+        <p>
+          To get started with Verge3D, download it from the 
+          <a href="https://www.soft8soft.com/get-verge3d/">official website</a>. You'll also need to be using either
+          Blender, 3DS Max, or Maya, as Verge3D functions as an integration with your 3D modeling software.
+        </p>
+        <p>With that out of the way, we can move on to creating our Hello World in Verge3D!</p>
+      </template>
+
+      <template id="Wonderland Engine">
+        <p>
+          To get started with Wonderland Engine, download it from the
+          <a href="https://wonderlandengine.com/downloads">official website.</a> You'll need to create a free account,
+          after which you'll be able to get a license key to enter in the first time you launch the engine.
+        </p>
+        <p>With that out of the way, we can move on to creating our Hello World in Wonderland Engine!</p>
+      </template>
       <next-project list class="next"></next-project>
     </div>
   </body>
