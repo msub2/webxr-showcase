@@ -43,13 +43,20 @@ details {
 .previous {
     float: left;
     font-size: 1.5em;
+    padding: 1em 0 1em 0;
 }
 
 .next {
     float: right;
     font-size: 1.5em;
+    padding: 1em 0 1em 0;
 }
 
 .source {
     text-align: left;
+}
+
+.back {
+    float: left;
+    font-size: 1.5em;
 }
