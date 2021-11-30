@@ -1,5 +1,5 @@
 /**
- * Site Navigation
+ * Site Header
  */
 class M2Header extends HTMLElement {
   constructor() {
@@ -76,92 +76,6 @@ class M2Header extends HTMLElement {
 }
 customElements.define('m2-header', M2Header);
 
-const PROJECT_NAMES = [
-  '0 - Getting Started',
-  '1 - Hello World',
-  '2 - First Steps',
-  '3 - On The Move',
-  '4 - Hands On',
-];
-
-class PreviousProject extends HTMLElement {
-  constructor() {
-    super();
-    
-    const shadowRoot = this.attachShadow({ mode: 'open' });
-  
-    this.link = document.createElement('a');
-  
-    // Styling
-    const style = document.createElement('style');
-    style.textContent = `
-            a, a:visited, a:hover, a:active {
-                color: #dd4a4a;
-            }
-        `;
-  
-    shadowRoot.append(style);
-    shadowRoot.appendChild(this.link);
-  }
-  connectedCallback() {
-    const list = this.getAttribute('list') != null;
-    const offset = list ? 2 : 3;
-
-    let urlElements = window.location.href.split('/');
-    let currentProject = Number(urlElements[urlElements.length - offset]);
-
-    if (currentProject > 0) {
-      urlElements[urlElements.length - offset] = String(currentProject - 1);
-      this.link.href = urlElements.join('/');
-      this.link.innerText = PROJECT_NAMES[currentProject - 1];
-      
-    } else {
-      console.log('current project is 0 or less');
-      return;
-    }
-  }
-}
-customElements.define('previous-project', PreviousProject);
-
-class NextProject extends HTMLElement {
-  constructor() {
-    super();
-
-    const shadowRoot = this.attachShadow({ mode: 'open' });
-
-    this.link = document.createElement('a');
-
-    // Styling
-    const style = document.createElement('style');
-    style.textContent = `
-            a, a:visited, a:hover, a:active {
-                color: #dd4a4a;
-            }
-        `;
-    
-    shadowRoot.append(style);
-    shadowRoot.appendChild(this.link);
-  }
-  connectedCallback() {
-    const list = this.getAttribute('list') != null;
-    const offset = list ? 2 : 3;
-    
-    let urlElements = window.location.href.split('/');
-    let currentProject = Number(urlElements[urlElements.length - offset]);
-
-    if (currentProject >= 0) {
-      // Determine cutoff later
-      urlElements[urlElements.length - offset] = String(currentProject + 1);
-      this.link.href = urlElements.join('/');
-      this.link.innerText = PROJECT_NAMES[currentProject + 1];
-      
-    } else {
-      return;
-    }
-  }
-}
-customElements.define('next-project', NextProject);
-
 /**
  * Latest script tags
  */
@@ -194,8 +108,24 @@ class LatestScriptTag extends HTMLElement {
 customElements.define('latest-script-tag', LatestScriptTag);
 
 /**
- * Content Loading
+ * Content Switching
  */
+CONTENT_NAMES = [
+  'A-Frame',
+  'babylon.js',
+  'Godot',
+  'JanusWeb',
+  'LÖVR',
+  'nunuStudio',
+  'p5.xr',
+  'Playcanvas',
+  'Sumerian',
+  'three.js',
+  'Unity',
+  'Verge3D',
+  'Wonderland Engine'
+];
+
 CURRENT_CONTENT = null;
 
 class ContentButton {
@@ -222,33 +152,113 @@ class ContentSwitch extends HTMLElement {
 
     const shadowRoot = this.attachShadow({ mode: 'open' });
 
+    const title = document.createElement('b');
+    title.innerText = 'Content';
+
     const wrapper = document.createElement('ul');
-    wrapper.appendChild(new ContentButton('A-Frame'));
-    wrapper.appendChild(new ContentButton('babylon.js'));
-    wrapper.appendChild(new ContentButton('Godot'));
-    wrapper.appendChild(new ContentButton('JanusWeb'));
-    wrapper.appendChild(new ContentButton('LÖVR'));
-    wrapper.appendChild(new ContentButton('nunuStudio'));
-    wrapper.appendChild(new ContentButton('p5.xr'));
-    wrapper.appendChild(new ContentButton('Playcanvas'));
-    wrapper.appendChild(new ContentButton('Sumerian'));
-    wrapper.appendChild(new ContentButton('three.js'));
-    wrapper.appendChild(new ContentButton('Unity'));
-    wrapper.appendChild(new ContentButton('Verge3D'));
-    wrapper.appendChild(new ContentButton('Wonderland Engine'));
+    CONTENT_NAMES.forEach(content => {
+      wrapper.appendChild(new ContentButton(content));
+    });
 
     // Styling
     const style = document.createElement('style');
     style.textContent = `
+            b {
+              font-size: 1.5em;
+              color: #dd4a4a;
+            }
+            
             ul {
               list-style-type: none;
               margin: 0;
               padding: 0;
               width: 200px;
               background-color: #222;
-              float: left;
-              position: absolute;
-              
+            }
+
+            li {
+              border-left: 4px solid #dd4a4a;
+            }
+
+            li:hover {
+              border-left: 6px solid #ffffff;
+            }
+            
+            li a {
+              display: block;
+              color: #0d0d0d;
+              padding: 8px 16px;
+              text-decoration: none;
+              color: #dd4a4a
+            }
+            
+            /* Change the link color on hover */
+            li a:hover {
+              background-color: #555;
+              color: white;
+              cursor: pointer;
+            }
+        `;
+
+    shadowRoot.append(style);
+    shadowRoot.append(title);
+    shadowRoot.append(wrapper);
+  }
+}
+customElements.define('content-switch', ContentSwitch);
+
+/**
+ * Project Navigation
+ */
+ const PROJECT_NAMES = [
+  '0 - Getting Started',
+  '1 - Hello World',
+  '2 - First Steps',
+  '3 - On The Move',
+  '4 - Hands On',
+];
+
+ class ProjectButton {
+  constructor(project) {
+    const wrapper = document.createElement('li');
+    const button = document.createElement('a');
+    button.innerText = project;
+    button.onclick = () => {
+      window.open(`../${PROJECT_NAMES.indexOf(project)}`, '_self');
+    }    
+    wrapper.appendChild(button);
+    return wrapper;
+  }
+}
+
+class ProjectNav extends HTMLElement {
+  constructor() {
+    super();
+
+    const shadowRoot = this.attachShadow({ mode: 'open' });
+
+    const title = document.createElement('b');
+    title.innerText = 'Project';
+
+    const wrapper = document.createElement('ul');
+    PROJECT_NAMES.forEach(project => {
+      wrapper.appendChild(new ProjectButton(project));
+    })
+
+    // Styling
+    const style = document.createElement('style');
+    style.textContent = `
+            b {
+              font-size: 1.5em;
+              color: #dd4a4a;
+            }
+
+            ul {
+              list-style-type: none;
+              margin: 0;
+              padding: 0;
+              width: 200px;
+              background-color: #222;
             }
 
             li {
@@ -276,7 +286,8 @@ class ContentSwitch extends HTMLElement {
         `;
 
     shadowRoot.append(style);
+    shadowRoot.append(title);
     shadowRoot.append(wrapper);
   }
 }
-customElements.define('content-switch', ContentSwitch);
+customElements.define('project-nav', ProjectNav);

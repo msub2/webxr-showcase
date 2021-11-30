@@ -1,8 +1,10 @@
 body {
-    color:white;
-    background-color:black;
+    color: white;
+    background-color: black;
     text-align: center;
     font-family: Arial, Helvetica, sans-serif;
+    display: flex;
+    flex-wrap: wrap;
 }
 
 a, a:visited, a:hover, a:active {
@@ -27,29 +29,17 @@ li {
 }
 
 details {
-    margin:auto;
+    margin: auto;
 }
 
-.header {
+m2-header {
     text-align: center;
-    width:100%;
+    flex: 0 0 100%;
 }
 
 .main {
     width: 66vw;
-    margin: auto;
-}
-
-.previous {
-    float: left;
-    font-size: 1.5em;
-    padding: 1em 0 1em 0;
-}
-
-.next {
-    float: right;
-    font-size: 1.5em;
-    padding: 1em 0 1em 0;
+    margin: 0 auto 0 auto;
 }
 
 .source {
