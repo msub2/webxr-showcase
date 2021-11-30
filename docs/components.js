@@ -1,3 +1,5 @@
+import 'https://cdn.jsdelivr.net/gh/highlightjs/cdn-release@11.3.1/build/highlight.min.js';
+
 /**
  * Site Header
  */
@@ -79,7 +81,7 @@ customElements.define('m2-header', M2Header);
 /**
  * Latest script tags
  */
-LATEST_SCRIPT_TAGS = {
+const LATEST_SCRIPT_TAGS = {
   aframe:
     '<script src="https://aframe.io/releases/1.2.0/aframe.min.js"></script>',
   babylon: '<script src="https://cdn.babylonjs.com/babylon.js"></script>',
@@ -110,7 +112,7 @@ customElements.define('latest-script-tag', LatestScriptTag);
 /**
  * Content Switching
  */
-CONTENT_NAMES = [
+const CONTENT_NAMES = [
   'A-Frame',
   'babylon.js',
   'Godot',
@@ -126,7 +128,7 @@ CONTENT_NAMES = [
   'Wonderland Engine'
 ];
 
-CURRENT_CONTENT = null;
+var CURRENT_CONTENT = null;
 
 class ContentButton {
   constructor(content) {
@@ -291,3 +293,46 @@ class ProjectNav extends HTMLElement {
   }
 }
 customElements.define('project-nav', ProjectNav);
+
+class SourceCode extends HTMLElement {
+  constructor() {
+    super();
+
+    const link = this.getAttribute('link');
+
+    const shadowRoot = this.attachShadow({ mode: 'open' });
+
+    const details = document.createElement('details');
+    details.open = true;
+    const summary = document.createElement('summary');
+    summary.innerText = link.split('/').pop();
+    details.appendChild(summary);
+    const pre = document.createElement('pre');
+    const code = document.createElement('code');
+    details.appendChild(pre);
+    pre.appendChild(code);
+
+    fetch(link).then(res => {
+      res.text().then(text => {
+        code.innerText = text;
+      });
+    });
+
+    const style = document.createElement('style');
+    style.innerText = `
+        pre {
+          background-color: #222;
+          border: 1px solid #e3e3e3;
+          box-shadow: inset 0 1px 1px rgba(0,0,0,.05);
+        }
+
+        code {
+          margin: 2px;
+        }
+    `;
+    
+    shadowRoot.appendChild(style);
+    shadowRoot.appendChild(details);
+  }
+}
+customElements.define('source-code', SourceCode);

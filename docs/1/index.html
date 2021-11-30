@@ -2,38 +2,149 @@
 <html>
   <head>
     <link rel="stylesheet" href="../main.css" />
-    <script src="../components.js"></script>
+    <script src="../components.js" type="module"></script>
     <title>1 - Hello World</title>
   </head>
 
   <body>
     <m2-header></m2-header>
+    <project-nav></project-nav>
     <div class="main">
       <h1>1 - Hello World</h1>
       <p>
-        For our purposes, a "Hello World" WebXR application will be extremely
-        simple: just a green ground plane, a blue sky (either set ourselves
-        through the clear color or provided to us by the
-        engine/library/framework) and the ability to enter a basic immersive VR
-        session from the click of a button.
+        For our purposes, a "Hello World" WebXR application will be extremely simple: 
+        just a green ground plane, a blue sky (either set ourselves through the clear 
+        color or provided to us by the engine/library/framework) and the ability to enter 
+        a basic immersive VR session from the click of a button.
       </p>
-      <ul>
-        <li><a href="A-Frame">A-Frame</a></li>
-        <li><a href="babylon.js">babylon.js</a></li>
-        <li><a href="Godot">Godot</a></li>
-        <li><a href="JanusWeb">JanusWeb</a></li>
-        <li><a href="LOVR">LOVR</a></li>
-        <!--<li><a href="nunuStudio">nunuStudio</a></li>-->
-        <li><a href="p5.xr">p5.xr</a></li>
-        <li><a href="Playcanvas">Playcanvas</a></li>
-        <li><a href="Sumerian">Sumerian</a></li>
-        <li><a href="three.js">three.js</a></li>
-        <li><a href="Unity">Unity</a></li>
-        <li><a href="Verge3D">Verge3D</a></li>
-        <li><a href="Wonderland">Wonderland Engine</a></li>
-      </ul>
-      <previous-project list class="previous"></previous-project>
-      <next-project list class="next"></next-project>
+      <div id="content"></div>
+
+      <template id="A-Frame">
+        <iframe src="_src/A-Frame/index.html"></iframe>
+        <h2>Source Code</h2>
+        <source-code link="_src/A-Frame/index.html"></source-code>
+      </template>
+
+      <template id="babylon.js">
+        <iframe src="_src/babylon.js/index.html"></iframe>
+        <h2>Playground</h2>
+        <p>
+          This page can also be viewed in the babylon.js playground
+          <a href="https://playground.babylonjs.com/#KKD4NB">here</a>.
+        </p>
+        <h2>Source Code</h2>
+        <source-code link="_src/babylon.js/index.html"></source-code>
+      </template>
+
+      <template id="Godot">
+        <iframe src="_deploy/Godot/index.html"></iframe>
+        <h2>Source Code</h2>
+        <p>
+          You can find a copy of the complete project
+          <a href="_src/Godot/1 - Hello World (Godot).zip">here</a>.
+        </p>
+      </template>
+
+      <template id="JanusWeb">
+        <iframe src="_src/JanusWeb/index.html"></iframe>
+        <h2>Source Code</h2>
+        <source-code link="_src/JanusWeb/index2.html"></source-code>
+      </template>
+
+      <template id="LÖVR">
+        <iframe src="_deploy/LOVR/lovr.html"></iframe>
+        <h2>Source Code</h2>
+        <source-code link="_src/LOVR/main.lua"></source-code>
+      </template>
+
+      <template id="nunuStudio">
+        <iframe src="_deploy/nunuStudio"></iframe>
+        <h2>Source Code</h2>
+        <p>
+          You can find a copy of the complete project
+          <a href="_src/nunuStudio/Hello World.nsp">here</a>.
+        </p>
+      </template>
+
+      <template id="p5.xr">
+        <iframe src="_src/p5.xr/index.html"></iframe>
+        <h2>Editor</h2>
+        <p>
+          This can also be viewed in the
+          <a href="https://editor.p5js.org/msub2/sketches/U2WxDJySH"
+            >p5.js online editor.</a
+          >
+        </p>
+        <h2>Source Code</h2>
+        <source-code link="_src/p5.xr/index.html"></source-code>
+      </template>
+
+      <template id="Playcanvas">
+        <iframe src="https://playcanv.as/p/15b4eb47/"></iframe>
+        <h2>Project</h2>
+        <p>
+          You can find the link to the Playcanvas project
+          <a href="https://playcanvas.com/project/755661/overview/hello-world"
+            >here</a
+          >, where you can open the editor to view the setup of the scene.
+        </p>
+      </template>
+
+      <template id="Sumerian">
+        <iframe src="https://eb2248a5ac72401888734fba31841701.us-east-2.sumerian.aws/" allow="xr-spatial-tracking"></iframe>
+        <h2>Project</h2>
+        <p>Steps to recreate:</p>
+        <ul>
+          <li>Import the VR Asset Pack from Import Assets</li>
+          <li>
+            Create a plane from Create Entity, then scale it up by 10, rotate it,
+            and assign its material to be the color green.
+          </li>
+          <li>
+            Set the background color to be blue from the Environment tab on the
+            right sidebar.
+          </li>
+          <li>Drag the VRCameraRig from the VR Asset Pack into the scene.</li>
+          <li>
+            Open the VRCameraRig component on the entity and check "Current
+            VRCameraRig" to enable it.
+          </li>
+        </ul>
+      </template>
+
+      <template id="three.js">
+        <iframe src="_src/three.js/index.html"></iframe>
+        <h2>Source Code</h2>
+        <source-code link="_src/three.js/index.html"></source-code>
+      </template>
+
+      <template id="Unity">
+        <iframe src="_deploy/Unity/index.html"></iframe>
+        <h2>Source Code</h2>
+        <p>
+          You can find a copy of the complete project
+          <a href="_src/Unity/1 - Hello World.zip">here</a>.
+        </p>
+      </template>
+
+      <template id="Verge3D">
+        <iframe src="_src/Verge3D/index.html"></iframe>
+        <h2>Source Code</h2>
+        <p>
+          You can find a copy of the complete project
+          <a href="_src/Verge3D/1 - Hello World (Verge3D).zip">here</a>.
+        </p>
+      </template>
+
+      <template id="Wonderland Engine">
+        <iframe src="_deploy/Wonderland/index.html"></iframe>
+        <h2>Source Code</h2>
+        <p>
+          You can find a copy of the complete project
+          <a href="_src/Wonderland/Hello World.wlp">here</a>.
+        </p>
+      </template>
     </div>
+    <content-switch></content-switch>
   </body>
 </html>
