@@ -1,5 +1,3 @@
-import 'https://cdn.jsdelivr.net/gh/highlightjs/cdn-release@11.3.1/build/highlight.min.js';
-
 /**
  * Site Header
  */
@@ -39,31 +37,31 @@ class M2Header extends HTMLElement {
     // Styling
     const style = document.createElement('style');
     style.textContent = `
-            a {
-                color: #dd4a4a;
-                text-decoration: none;
-                font-size: 1.5em;
-            }
-        
-            h1 {
-                font-size: 4em;
-            }
+        a {
+            color: #dd4a4a;
+            text-decoration: none;
+            font-size: 1.5em;
+        }
+    
+        h1 {
+            font-size: 4em;
+        }
 
-            .header > a {
-                margin: 1em;
-            }
+        .header > a {
+            margin: 1em;
+        }
 
-            p {
-                display: inline;
-                margin-left: -.5em;
-                margin-right: 1em;
-                font-size: 1.5em;
-            }
+        p {
+            display: inline;
+            margin-left: -.5em;
+            margin-right: 1em;
+            font-size: 1.5em;
+        }
 
-            p > a {
-                font-size: 1em;
-            }
-        `;
+        p > a {
+            font-size: 1em;
+        }
+    `;
 
     shadowRoot.append(style);
     wrapper.appendChild(logo);
@@ -128,7 +126,7 @@ const CONTENT_NAMES = [
   'Wonderland Engine'
 ];
 
-var CURRENT_CONTENT = null;
+var CURRENT_CONTENT = sessionStorage.getItem('content') || CONTENT_NAMES[0];
 
 class ContentButton {
   constructor(content) {
@@ -138,13 +136,23 @@ class ContentButton {
     button.onclick = () => {
       if (CURRENT_CONTENT == content) return;
       CURRENT_CONTENT = content;
-      const template = document.getElementById(content).content.cloneNode(true);
-      const contentDiv = document.getElementById('content');
-      contentDiv.innerHTML = '';
-      contentDiv.appendChild(template);
+      sessionStorage.setItem('content', content);
+      CONTENT_NAMES.forEach(content => {
+        this.parent.contentMap[content].wrapper.className = '';
+      });
+      this.load(content);
     }
     wrapper.appendChild(button);
-    return wrapper;
+    this.button = button;
+    this.wrapper = wrapper;
+    return this;
+  }
+  load(content) {
+    const template = document.getElementById(content).content.cloneNode(true);
+    const contentDiv = document.getElementById('content');
+    contentDiv.innerHTML = '';
+    contentDiv.appendChild(template);
+    this.wrapper.className = 'active-content';
   }
 }
 
@@ -158,49 +166,55 @@ class ContentSwitch extends HTMLElement {
     title.innerText = 'Content';
 
     const wrapper = document.createElement('ul');
+
+    this.contentMap = {};
     CONTENT_NAMES.forEach(content => {
-      wrapper.appendChild(new ContentButton(content));
+      const contentButton = new ContentButton(content);
+      this.contentMap[content] = contentButton;
+      contentButton['parent'] = this;
+      if (content == CURRENT_CONTENT) contentButton.load(content);
+      wrapper.appendChild(contentButton.wrapper);
     });
 
     // Styling
     const style = document.createElement('style');
     style.textContent = `
-            b {
-              font-size: 1.5em;
-              color: #dd4a4a;
-            }
-            
-            ul {
-              list-style-type: none;
-              margin: 0;
-              padding: 0;
-              width: 200px;
-              background-color: #222;
-            }
+        b {
+          font-size: 1.5em;
+          color: #dd4a4a;
+        }
+        
+        ul {
+          list-style-type: none;
+          margin: 0;
+          padding: 0;
+          width: 200px;
+          background-color: #222;
+        }
 
-            li {
-              border-left: 4px solid #dd4a4a;
-            }
+        li {
+          border-left: 4px solid #dd4a4a;
+        }
 
-            li:hover {
-              border-left: 6px solid #ffffff;
-            }
-            
-            li a {
-              display: block;
-              color: #0d0d0d;
-              padding: 8px 16px;
-              text-decoration: none;
-              color: #dd4a4a
-            }
-            
-            /* Change the link color on hover */
-            li a:hover {
-              background-color: #555;
-              color: white;
-              cursor: pointer;
-            }
-        `;
+        li:hover, .active-content {
+          border-left: 6px solid #ffffff;
+        }
+        
+        li a {
+          display: block;
+          color: #0d0d0d;
+          padding: 8px 16px;
+          text-decoration: none;
+          color: #dd4a4a
+        }
+        
+        /* Change the link color on hover */
+        li a:hover {
+          background-color: #555;
+          color: white;
+          cursor: pointer;
+        }
+    `;
 
     shadowRoot.append(style);
     shadowRoot.append(title);
@@ -220,16 +234,28 @@ customElements.define('content-switch', ContentSwitch);
   '4 - Hands On',
 ];
 
- class ProjectButton {
+var CURRENT_PROJECT = sessionStorage.getItem('project') || PROJECT_NAMES[0];
+
+class ProjectButton {
   constructor(project) {
     const wrapper = document.createElement('li');
-    const button = document.createElement('a');
+    const button = document.createElement('a');    
+
     button.innerText = project;
     button.onclick = () => {
+      CURRENT_PROJECT = project;
+      sessionStorage.setItem('project', project);
+      PROJECT_NAMES.forEach(project => {
+        this.parent.projectMap[project].wrapper.className = '';
+      });
       window.open(`../${PROJECT_NAMES.indexOf(project)}`, '_self');
     }    
     wrapper.appendChild(button);
-    return wrapper;
+    this.wrapper = wrapper;
+    return this;
+  }
+  load() {
+    this.wrapper.className = 'active-project';
   }
 }
 
@@ -243,49 +269,55 @@ class ProjectNav extends HTMLElement {
     title.innerText = 'Project';
 
     const wrapper = document.createElement('ul');
+
+    this.projectMap = {};
     PROJECT_NAMES.forEach(project => {
-      wrapper.appendChild(new ProjectButton(project));
-    })
+      const projectButton = new ProjectButton(project);
+      this.projectMap[project] = projectButton;
+      projectButton['parent'] = this;
+      if (project == CURRENT_PROJECT) projectButton.load();
+      wrapper.appendChild(projectButton.wrapper);
+    });
 
     // Styling
     const style = document.createElement('style');
     style.textContent = `
-            b {
-              font-size: 1.5em;
-              color: #dd4a4a;
-            }
+        b {
+          font-size: 1.5em;
+          color: #dd4a4a;
+        }
 
-            ul {
-              list-style-type: none;
-              margin: 0;
-              padding: 0;
-              width: 200px;
-              background-color: #222;
-            }
+        ul {
+          list-style-type: none;
+          margin: 0;
+          padding: 0;
+          width: 200px;
+          background-color: #222;
+        }
 
-            li {
-              border-right: 4px solid #dd4a4a;
-            }
+        li {
+          border-right: 4px solid #dd4a4a;
+        }
 
-            li:hover {
-              border-right: 6px solid #ffffff;
-            }
-            
-            li a {
-              display: block;
-              color: #0d0d0d;
-              padding: 8px 16px;
-              text-decoration: none;
-              color: #dd4a4a
-            }
-            
-            /* Change the link color on hover */
-            li a:hover {
-              background-color: #555;
-              color: white;
-              cursor: pointer;
-            }
-        `;
+        li:hover, .active-project {
+          border-right: 6px solid #ffffff;
+        }
+        
+        li a {
+          display: block;
+          color: #0d0d0d;
+          padding: 8px 16px;
+          text-decoration: none;
+          color: #dd4a4a
+        }
+        
+        /* Change the link color on hover */
+        li a:hover {
+          background-color: #555;
+          color: white;
+          cursor: pointer;
+        }
+    `;
 
     shadowRoot.append(style);
     shadowRoot.append(title);
@@ -294,6 +326,9 @@ class ProjectNav extends HTMLElement {
 }
 customElements.define('project-nav', ProjectNav);
 
+/**
+ * Source Code Displaying
+ */
 class SourceCode extends HTMLElement {
   constructor() {
     super();
