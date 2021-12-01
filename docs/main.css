@@ -11,8 +11,15 @@ a, a:visited, a:hover, a:active {
     color: #dd4a4a;
 }
 
+pre {
+    background-color: #222;
+    border: 1px solid #e3e3e3;
+    box-shadow: inset 0 1px 1px rgba(0, 0, 0, .05);
+    padding: 4px;
+}
+
 code {
-    text-align: left;
+    text-align: left;    
 }
 
 h1 {

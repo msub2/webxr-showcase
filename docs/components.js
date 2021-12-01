@@ -97,8 +97,12 @@ class LatestScriptTag extends HTMLElement {
     const wrapper = document.createElement('pre');
     const tag = document.createElement('code');
     wrapper.appendChild(tag);
+    wrapper.style.backgroundColor = '#222';
+    wrapper.style.border = '1px solid #e3e3e3';
+    wrapper.style.boxShadow = 'inset 0 1px 1px rgba(0, 0, 0, .05)';
+    wrapper.style.padding = '4px';
 
-    shadowRoot.append(wrapper);
+    shadowRoot.appendChild(wrapper);
   }
   connectedCallback() {
     let tag = this.shadowRoot.children[0];
@@ -359,6 +363,7 @@ class SourceCode extends HTMLElement {
           background-color: #222;
           border: 1px solid #e3e3e3;
           box-shadow: inset 0 1px 1px rgba(0,0,0,.05);
+          padding: 4px;
         }
 
         code {
