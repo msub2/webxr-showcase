@@ -93,7 +93,12 @@
           for the HTML and JavaScript. While you can generate these files yourself by following
           the instructions <a href="https://lovr.org/docs/Compiling">here</a>, for simplicity
           I've pre-generated the files myself based on the latest stable build, which you can
-          download <a href="LOVR WebXR Files (2021-12-1).zip">here</a>.
+          download <a href="LOVR WebXR Files (2021-12-1).zip">here</a>. This version does not
+          use threads, as the requirements to enable use of SharedArrayBuffer can be troublesome
+          to set up depending on your hosting setup. If you're able to enable cross-origin isolation
+          wherever you're hosting your LÖVR project, you can download
+          <a href="LOVR WebXR Files Threaded (2021-12-1).zip">this version</a> of the files to make
+          use of WASM threads with your project.
         </p>
         <p>With that out of the way, we can move on to creating our Hello World in LÖVR!</p>
       </template>

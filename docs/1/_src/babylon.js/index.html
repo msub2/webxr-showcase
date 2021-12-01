@@ -4,12 +4,12 @@
     <script src="https://cdn.babylonjs.com/babylon.js"></script>
     <title>Hello World (babylon.js)</title>
   </head>
-  <body>
+  <body style="margin: 0; overflow-y: hidden">
     <canvas id="renderCanvas">
       <script>
         const canvas = document.getElementById('renderCanvas');
         canvas.style.width = '100%';
-        canvas.style.height = '100%';
+        canvas.style.height = '100vh';
         const engine = new BABYLON.Engine(canvas, true);
 
         const createScene = (async function () {

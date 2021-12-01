@@ -29,6 +29,7 @@ h1 {
 iframe {
     width: 66vw;
     height: calc(66vw * 0.5625); /* 16:9 */
+    border: none;
 }
 
 li {
