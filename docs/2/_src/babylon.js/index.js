@@ -1,7 +1,7 @@
 // Set up Canvas
 const canvas = document.getElementById('renderCanvas');
 canvas.style.width = '100%';
-canvas.style.height = '100%';
+canvas.style.height = '100vh';
 
 // Set up objects to be assigned in createScene
 let xrHelper = null;

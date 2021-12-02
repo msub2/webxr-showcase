@@ -1,101 +1,102 @@
 <!doctype html>
 <html>
-
-<head>
+  <head>
     <style>
-        body,
-        html {
-            width: 100%;
-            height: 100%;
-            margin: 0;
-            padding: 0;
-            font-family: sans-serif;
-        }
+      html, body {
+        width: 100%;
+        height: 100%;
+        margin: 0;
+        padding: 0;
+        font-family: 'sans-serif';
+        overflow-y: hidden;
+      }
 
-        #canvas {
-            display: block;
-            border-radius: 8px;
-            background: #fff;
-            max-width: 1080px;
-            width: 80%;
-            height: auto;
-            box-shadow: 0 2px 8px rgba(0, 0, 0, .25);
-            margin: 40px auto;
-            outline: 0;
-        }
+      #canvas {
+        width: 100%;
+        height: 100vh;
+      }
 
-        button {
-            display: block;
-            margin: 0 auto;
-            font-size: 18px;
-            border-radius: 4px;
-            padding: 8px 16px;
-        }
+      button {
+        display: block;
+        position: fixed;
+        margin: -64px 0 0 calc(50vw - 64px);
+        font-size: 18px;
+        border-radius: 4px;
+        padding: 8px 16px;
+      }
     </style>
-    <meta charset=utf-8>
-    <title>First Steps (LÖVR)</title>
-</head>
 
-<body>
-    <div class=container>
-        <canvas height=600 id=canvas tabindex=1 width=1080></canvas>
+    <meta charset="utf-8"/>
+    <title>LÖVR</title>
+  </head>
+
+  <body>
+    <div class="container">
+      <canvas id="canvas" width="1080" height="600" tabIndex="1"></canvas>
     </div>
-    <script>
-        var container = document.querySelector(".container");
-        var canvas = document.getElementById("canvas");
-        var button = document.createElement("button");
-        button.textContent = "Enter VR";
 
-        var Module = window.Module = {
-            arguments: [],
-            preRun: [],
-            postRun: [],
-            print: console.log.bind(console),
-            printErr: console.error.bind(console),
-            thisProgram: "./lovr",
-            canvas: canvas
-        };
+    <script type="text/javascript">
+      var container = document.querySelector('.container');
+      var canvas = document.getElementById('canvas');
+      var button = document.createElement('button');
+      button.textContent = 'Enter VR';
 
-        var project = 'game.lovr';
-        if (project) {
-            Module.arguments.push(project);
-            Module.preRun.push(function () {
-                Module.FS_createPreloadedFile("/", project, project, true, false);
-            });
-        }
+      var Module = window.Module = {
+        arguments: [],
+        preRun: [],
+        postRun: [],
+        print: console.log.bind(console),
+        printErr: console.error.bind(console),
+        thisProgram: './lovr',
+        canvas: canvas
+      };
 
-        if (navigator.xr) {
-            navigator.xr.isSessionSupported("immersive-vr").then(function (supported) {
-                if (!supported) return;
+      // To run a LÖVR project on this page, create a .lovr (zip) file of its folder and serve it
+      // alongside the HTML file.  Then set the 'project' variable below to the project's filename.
+      // This downloads the .lovr file into the virtual filesystem and adds it as a virtual command
+      // line argument before booting up LÖVR.
+      // Example: var project = 'app.lovr';
+      var project = 'game.lovr';
+      if (project) {
+        Module.arguments.push(project);
+        Module.preRun.push(function() {
+          Module.FS_createPreloadedFile('/', project, project, true, false);
+        });
+      }
 
-                container.appendChild(button);
+      // If WebXR is supported and immersive sessions are supported, add a button to the DOM that
+      // controls starting/stopping the immersive session.
+      if (navigator.xr) {
+        navigator.xr.isSessionSupported('immersive-vr').then(function(supported) {
+          if (!supported) return;
 
-                var active = false;
+          container.appendChild(button);
 
-                function onEnter() {
-                    active = true;
-                    button.textContent = 'Exit VR';
-                }
+          var active = false;
 
-                function onExit() {
-                    active = false;
-                    button.textContent = 'Enter VR';
-                }
+          function onEnter() {
+            active = true;
+            button.textContent = 'Exit VR';
+          }
 
-                button.addEventListener("click", function () {
-                    if (!active) {
-                        Module.lovr.enterVR().then(function (session) {
-                            session.addEventListener("end", onExit);
-                            onEnter();
-                        });
-                    } else {
-                        Module.lovr.exitVR().then(onExit);
-                    }
-                });
-            });
-        }
+          function onExit() {
+            active = false;
+            button.textContent = 'Enter VR';
+          }
+
+          button.addEventListener('click', function() {
+            if (!active) {
+              Module.lovr.enterVR().then(function(session) {
+                session.addEventListener('end', onExit);
+                onEnter();
+              });
+            } else {
+              Module.lovr.exitVR().then(onExit);
+            }
+          });
+        });
+      }
     </script>
     <script async src=lovr.js></script>
-</body>
-
+  </body>
 </html>
