@@ -3,8 +3,7 @@
 <head>
 	<meta charset='utf-8' />
 	<meta name='viewport' content='width=device-width, user-scalable=no' />
-	<link id='-gd-engine-icon' rel='icon' type='image/png' href='favicon.png' />
-	<title>Hello World (Godot)</title>
+	<title>1 - Hello World</title>
 	<style type='text/css'>
 
 		body {
@@ -112,6 +111,8 @@
 			visibility: visible;
 		}
 	</style>
+<link id='-gd-engine-icon' rel='icon' type='image/png' href='index.icon.png' />
+<link rel='apple-touch-icon' href='index.apple-touch-icon.png'/>
 <script src="https://cdn.jsdelivr.net/npm/webxr-polyfill@latest/build/webxr-polyfill.min.js"></script>
 <script>
 var polyfill = new WebXRPolyfill();
@@ -140,19 +141,11 @@ var polyfill = new WebXRPolyfill();
 	<script type='text/javascript' src='index.js'></script>
 	<script type='text/javascript'>//<![CDATA[
 
-		var engine = new Engine;
-		var setStatusMode;
-		var setStatusNotice;
+		const GODOT_CONFIG = {"args":[],"canvasResizePolicy":2,"executable":"index","experimentalVK":false,"fileSizes":{"index.pck":10832,"index.wasm":17472981},"focusCanvas":true,"gdnativeLibs":[]};
+		var engine = new Engine(GODOT_CONFIG);
 
 		(function() {
-
-			const EXECUTABLE_NAME = 'index';
-			const MAIN_PACK = 'index.pck';
-			const GDNATIVE_LIBS = [];
 			const INDETERMINATE_STATUS_STEP_MS = 100;
-			const FULL_WINDOW = true;
-
-			var canvas = document.getElementById('canvas');
 			var statusProgress = document.getElementById('status-progress');
 			var statusProgressInner = document.getElementById('status-progress-inner');
 			var statusIndeterminate = document.getElementById('status-indeterminate');
@@ -160,9 +153,6 @@ var polyfill = new WebXRPolyfill();
 
 			var initializing = true;
 			var statusMode = 'hidden';
-			var lastWidth = 0;
-			var lastHeight = 0;
-			var lastScale = 0;
 
 			var animationCallbacks = [];
 			function animate(time) {
@@ -171,26 +161,7 @@ var polyfill = new WebXRPolyfill();
 			}
 			requestAnimationFrame(animate);
 
-			function adjustCanvasDimensions() {
-				const scale = window.devicePixelRatio || 1;
-				if (lastWidth != window.innerWidth || lastHeight != window.innerHeight || lastScale != scale) {
-					lastScale = scale;
-					lastWidth = window.innerWidth;
-					lastHeight = window.innerHeight;
-					canvas.width = Math.floor(lastWidth * scale);
-					canvas.height = Math.floor(lastHeight * scale);
-					canvas.style.width = lastWidth + "px";
-					canvas.style.height = lastHeight + "px";
-				}
-			}
-			if (FULL_WINDOW) {
-				animationCallbacks.push(adjustCanvasDimensions);
-				adjustCanvasDimensions();
-			} else {
-				engine.setCanvasResizedOnStart(true);
-			}
-
-			setStatusMode = function setStatusMode(mode) {
+			function setStatusMode(mode) {
 
 				if (statusMode === mode || !initializing)
 					return;
@@ -220,7 +191,6 @@ var polyfill = new WebXRPolyfill();
 			}
 
 			function animateStatusIndeterminate(ms) {
-
 				var i = Math.floor(ms / INDETERMINATE_STATUS_STEP_MS % 8);
 				if (statusIndeterminate.children[i].style.borderTopColor == '') {
 					Array.prototype.slice.call(statusIndeterminate.children).forEach(child => {
@@ -230,8 +200,7 @@ var polyfill = new WebXRPolyfill();
 				}
 			}
 
-			setStatusNotice = function setStatusNotice(text) {
-
+			function setStatusNotice(text) {
 				while (statusNotice.lastChild) {
 					statusNotice.removeChild(statusNotice.lastChild);
 				}
@@ -241,22 +210,6 @@ var polyfill = new WebXRPolyfill();
 					statusNotice.appendChild(document.createElement('br'));
 				});
 			};
-
-			engine.setProgressFunc((current, total) => {
-
-				if (total > 0) {
-					statusProgressInner.style.width = current/total * 100 + '%';
-					setStatusMode('progress');
-					if (current === total) {
-						// wait for progress bar animation
-						setTimeout(() => {
-							setStatusMode('indeterminate');
-						}, 500);
-					}
-				} else {
-					setStatusMode('indeterminate');
-				}
-			});
 
 			function displayFailureNotice(err) {
 				var msg = err.message || err;
@@ -270,9 +223,22 @@ var polyfill = new WebXRPolyfill();
 				displayFailureNotice('WebGL not available');
 			} else {
 				setStatusMode('indeterminate');
-				engine.setCanvas(canvas);
-				engine.setGDNativeLibraries(GDNATIVE_LIBS);
-				engine.startGame(EXECUTABLE_NAME, MAIN_PACK).then(() => {
+				engine.startGame({
+					'onProgress': function (current, total) {
+						if (total > 0) {
+							statusProgressInner.style.width = current/total * 100 + '%';
+							setStatusMode('progress');
+							if (current === total) {
+								// wait for progress bar animation
+								setTimeout(() => {
+									setStatusMode('indeterminate');
+								}, 500);
+							}
+						} else {
+							setStatusMode('indeterminate');
+						}
+					},
+				}).then(() => {
 					setStatusMode('hidden');
 					initializing = false;
 				}, displayFailureNotice);

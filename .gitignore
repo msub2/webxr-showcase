@@ -1,6 +1,6 @@
 # Godot .import
-*.md5
-*.stex
+/**/.import
+*.import
 
 # Unity
 **/[Ll]ibrary/
