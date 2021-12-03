@@ -11,17 +11,17 @@
                 }
             ],
             "transformation": [
-                0.7160133123397827,
+                0.9999998,
                 0.0,
-                0.6980865001678467,
+                0.0,
                 0.0,
                 0.0,
                 1.0,
                 0.0,
                 0.0,
-                -0.6980865001678467,
                 0.0,
-                0.7160133123397827,
+                0.0,
+                0.9999998,
                 0.0,
                 0.0,
                 0.0,
@@ -46,12 +46,12 @@
                 0.0,
                 0.0,
                 0.0,
-                -0.0016164779663085938,
-                -3.999999761581421,
+                -0.0016164,
+                -3.9999997,
                 0.0,
                 0.0,
-                3.999999761581421,
-                -0.0016164779663085938,
+                3.9999997,
+                -0.0016164,
                 0.0,
                 0.0,
                 0.0,
@@ -84,7 +84,7 @@
                 0.5,
                 0.0,
                 2.9802322387695329e-8,
-                0.4999999403953552,
+                0.4999999,
                 5.960464477539065e-8,
                 1.0
             ],
@@ -130,6 +130,24 @@
                         "type": "eye right"
                     }
                 }
+            ],
+            "transformation": [
+                1.0,
+                0.0,
+                0.0,
+                0.0,
+                0.0,
+                1.0,
+                0.0,
+                0.0,
+                0.0,
+                0.0,
+                1.0,
+                0.0,
+                0.0,
+                0.0,
+                0.0,
+                1.0
             ]
         },
         "21": {
@@ -138,7 +156,7 @@
                 {
                     "type": "light",
                     "light": {
-                        "attenuation": 0.10000000149011612
+                        "attenuation": 0.1
                     }
                 }
             ],
@@ -155,7 +173,7 @@
                 0.0,
                 1.0,
                 0.0,
-                4.656612873077393e-10,
+                0.0,
                 3.0,
                 2.0,
                 1.0
@@ -167,7 +185,7 @@
                 {
                     "type": "light",
                     "light": {
-                        "attenuation": 0.10000000149011612
+                        "attenuation": 0.1
                     }
                 }
             ],
@@ -245,7 +263,7 @@
                 0.0,
                 0.75,
                 0.0,
-                0.4999999701976776,
+                0.4999999,
                 0.75,
                 -1.25,
                 1.0
@@ -300,7 +318,14 @@
             "name": "DefaultFont"
         }
     },
-    "images": {},
+    "images": {
+        "f0": {
+            "link": {
+                "name": "DefaultFontImage",
+                "file": "default"
+            }
+        }
+    },
     "materials": {
         "DefaultFontMaterial": {
             "link": {
@@ -310,7 +335,6 @@
         },
         "20": {
             "name": "White",
-            "shader": "Phong",
             "Phong": {
                 "specularColor": [
                     9.999899930335233e-7,
@@ -325,16 +349,17 @@
                     0.0,
                     1.0
                 ]
-            }
+            },
+            "pipeline": "42"
         },
         "22": {
             "name": "Pink",
             "Phong": {
                 "diffuseColor": [
-                    0.9098039269447328,
+                    0.9098039,
                     0.0,
-                    0.5411764979362488,
-                    0.0
+                    0.5411764,
+                    1.0
                 ],
                 "specularColor": [
                     9.999899930335233e-7,
@@ -344,9 +369,9 @@
                 ],
                 "shininess": 10,
                 "ambientColor": [
-                    0.3176470398902893,
+                    0.317647,
                     0.0,
-                    0.2165777683258057,
+                    0.2165777,
                     1.0
                 ]
             }
@@ -356,7 +381,7 @@
             "Phong": {
                 "diffuseColor": [
                     1.0,
-                    0.8039215803146362,
+                    0.8039215,
                     0.0,
                     1.0
                 ],
@@ -367,8 +392,8 @@
                     1.0
                 ],
                 "ambientColor": [
-                    0.384313702583313,
-                    0.3089579045772553,
+                    0.3843137,
+                    0.3089579,
                     0.0,
                     1.0
                 ]
@@ -378,9 +403,9 @@
             "name": "Green",
             "Phong": {
                 "diffuseColor": [
-                    0.15294118225574494,
-                    0.7882353067398071,
-                    0.5411764979362488,
+                    0.1529411,
+                    0.7882353,
+                    0.5411764,
                     1.0
                 ],
                 "specularColor": [
@@ -391,71 +416,59 @@
                 ],
                 "ambientColor": [
                     0.0,
-                    0.23529410362243653,
-                    0.1437908560037613,
+                    0.2352941,
+                    0.1437908,
                     1.0
                 ]
             }
         }
     },
     "shaders": {
-        "1": {
+        "32": {
             "link": {
-                "name": "DistanceFieldVector Textured",
+                "name": "DistanceFieldVector",
                 "file": "default"
             }
         },
-        "2": {
-            "link": {
-                "name": "Flat",
-                "file": "default"
-            }
-        },
-        "3": {
-            "link": {
-                "name": "Flat Textured",
-                "file": "default"
-            }
-        },
-        "4": {
-            "link": {
-                "name": "MeshVisualizer",
-                "file": "default"
-            }
-        },
-        "5": {
-            "link": {
-                "name": "Phong",
-                "file": "default"
-            }
-        },
-        "6": {
-            "link": {
-                "name": "Phong Textured",
-                "file": "default"
-            }
-        },
-        "28": {
+        "34": {
             "link": {
                 "name": "Dynamic",
                 "file": "default"
             }
         },
-        "29": {
+        "35": {
             "link": {
-                "name": "Particle Textured",
+                "name": "Flat",
                 "file": "default"
             }
         },
-        "30": {
+        "38": {
+            "link": {
+                "name": "MeshVisualizer",
+                "file": "default"
+            }
+        },
+        "40": {
+            "link": {
+                "name": "Static",
+                "file": "default"
+            }
+        },
+        "41": {
+            "link": {
+                "name": "Phong",
+                "file": "default"
+            }
+        },
+        "44": {
             "link": {
                 "name": "Skinning",
                 "file": "default"
             }
         },
-        "31": {
+        "45": {
             "link": {
-                "name": "Static",
+                "name": "Particle",
                 "file": "default"
             }
         }
@@ -465,8 +478,9 @@
             "name": "Hello World",
             "version": [
                 0,
-                7,
-                6
+                8,
+                8,
+                8
             ]
         },
         "vr": {
@@ -475,7 +489,7 @@
         },
         "scripting": {
             "sourcePaths": [
-                "/js/components/",
+                "/js/editor-components-bundle.js",
                 "js/"
             ]
         },
@@ -489,5 +503,55 @@
         }
     },
     "animations": {},
-    "skins": {}
+    "skins": {},
+    "pipelines": {
+        "33": {
+            "link": {
+                "name": "DistanceFieldVector",
+                "file": "default"
+            }
+        },
+        "36": {
+            "link": {
+                "name": "Flat Opaque",
+                "file": "default"
+            }
+        },
+        "37": {
+            "link": {
+                "name": "Flat Opaque Textured",
+                "file": "default"
+            }
+        },
+        "39": {
+            "link": {
+                "name": "MeshVisualizer",
+                "file": "default"
+            }
+        },
+        "42": {
+            "link": {
+                "name": "Phong Opaque",
+                "file": "default"
+            }
+        },
+        "43": {
+            "link": {
+                "name": "Phong Opaque Textured",
+                "file": "default"
+            }
+        },
+        "46": {
+            "link": {
+                "name": "Foliage",
+                "file": "default"
+            }
+        },
+        "47": {
+            "link": {
+                "name": "Particle",
+                "file": "default"
+            }
+        }
+    }
 }
