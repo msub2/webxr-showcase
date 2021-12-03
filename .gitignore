@@ -12,6 +12,7 @@
 
 **/.vs/
 *.vsconfig
+*.vscode
 *.sln
 
 # Wonderland
