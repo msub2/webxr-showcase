@@ -15,8 +15,11 @@
         setVRBackgroundColor(0, 0, 255);
         angleMode(DEGREES);
       }
-
+      
       function draw() {
+        // p5.xr creates an immersive session with the 'local' reference space,
+        // so here we're just setting an average height to be above the ground
+        setViewerPosition(0, 1.6, 0);
         rotateX(-90);
         fill(0, 255, 0);
         noStroke();

@@ -3,6 +3,7 @@ let player = {
 	deadzone: 0.25,
 	flying: false,
 	speed: 0.05,
+	height: 1.6
 };
 
 let x = 0;
@@ -29,7 +30,7 @@ function calculate() {
 		glMatrix.vec3.scale(v, v, player.speed);
 		
 		player.position.x += v[0];
-		player.position.y += v[1];
+		if (player.flying) player.position.y += v[1];
 		player.position.z += v[2];
 	}
 }
@@ -39,12 +40,12 @@ function draw() {
 	const left = getXRInput(LEFT);
 	const right = getXRInput(RIGHT);
 
-	setViewerPosition(p.x, p.y, p.z);
+	setViewerPosition(p.x, p.y + player.height, p.z);
 
 	[left, right].forEach((hand) => {
 		if (hand) {
 			push();
-			translate(p.x, p.y, p.z);
+			translate(p.x, p.y + player.height, p.z);
 			fill(255, 255, 255);
 			applyMatrix(hand.pose);
 			box(0.15);
