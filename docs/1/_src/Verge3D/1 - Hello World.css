@@ -35,13 +35,3 @@ body {
 
 /* removes tap blinking on ios devices */
 * { -webkit-tap-highlight-color:rgba(0,0,0,0); }
-
-/* Dark Theme */
-
-.v3d-simple-preloader-background {
-    background-color: #181818;
-}
-
-.v3d-simple-preloader-container {
-    filter: drop-shadow(0px 0px 4px #2a69bd);
-}

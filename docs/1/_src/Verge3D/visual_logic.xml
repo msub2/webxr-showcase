@@ -1,33 +1,121 @@
 <xml xmlns="http://www.w3.org/1999/xhtml">
-  <tab name="init" type="InitTab" active="false" scrollx="875" scrolly="431" scale="0.9"></tab>
-  <tab name="main" type="MainTab" active="true" scrollx="924" scrolly="536" scale="0.9">
-    <block xmlns="https://developers.google.com/blockly/xml" type="eventHTMLElem" id="G#I]*:!jduVYn!]DhDEY" x="-970" y="-430">
-      <field name="EVENT">click</field>
-      <field name="PARENT">TRUE</field>
+  <tab name="init" type="InitTab" active="false" scrollx="875" scrolly="425.4999999999999" scale="0.9"></tab>
+  <tab name="main" type="MainTab" active="true" scrollx="929.96728515625" scrolly="387.4298415243336" scale="0.7912092655287302">
+    <block xmlns="https://developers.google.com/blockly/xml" type="addHTMLElement" id="Fd$IrHJ|I@7a*x`ssW%W" x="-950" y="-390">
+      <field name="ELEMENT">button</field>
+      <field name="MODE">TO</field>
+      <field name="PARENT">FALSE</field>
       <value name="ID">
-        <shadow type="text" id="#dWY41On;IV^;((C,$cS">
-          <field name="TEXT">vr_button</field>
+        <shadow type="text" id="C$2x@4{{kpih!y3S)IUk">
+          <field name="TEXT">enterVR</field>
         </shadow>
       </value>
-      <statement name="DO">
-        <block type="checkVRMode" id="WZ2.ZM3mKg0]PG(v+lR;">
-          <statement name="DO_AVAIL">
-            <block type="enterVRMode" id="B{)x]K-TC=|q{IfR5Z3.">
-              <field name="REF_SPACE">SITTING</field>
+      <value name="TARGET_ID">
+        <shadow type="DOMObjectSelector" id="eS`gPb9N~ceT~)(1h(3[">
+          <field name="DOM_OBJECT">CONTAINER</field>
+        </shadow>
+      </value>
+      <next>
+        <block type="setHTMLElemStyle" id="TU=-S!S)xey[G#V(1xlg">
+          <field name="PROPERTY">position</field>
+          <field name="PARENT">FALSE</field>
+          <value name="VALUE">
+            <block type="text" id="2D:Ag2e1JV:*7|PG^!m|">
+              <field name="TEXT">absolute</field>
             </block>
-          </statement>
-          <statement name="DO_UNAVAIL">
-            <block type="console.log" id="N5GoV+hEM|6#,51s9S,1">
+          </value>
+          <value name="ID">
+            <shadow type="text" id="Nb8r34bpy(ilzTrxyC3w">
+              <field name="TEXT">enterVR</field>
+            </shadow>
+          </value>
+          <next>
+            <block type="setHTMLElemStyle" id="2EXGN/@*SnNAb5i!U5!O">
+              <field name="PROPERTY">bottom</field>
+              <field name="PARENT">FALSE</field>
               <value name="VALUE">
-                <shadow type="text" id="QODhf/98c-DK4yOnnAcp">
-                  <field name="TEXT">WebXR not enabled!</field>
+                <block type="text" id="{Q0ZS7#S1JOcCHw|1AKv">
+                  <field name="TEXT">10%</field>
+                </block>
+              </value>
+              <value name="ID">
+                <shadow type="text" id="2MWHo%}#kRa|%2C][5P)">
+                  <field name="TEXT">enterVR</field>
                 </shadow>
               </value>
+              <next>
+                <block type="setHTMLElemStyle" id="zNC~K^*-.n/Ct]Wh:~;|">
+                  <field name="PROPERTY">left</field>
+                  <field name="PARENT">FALSE</field>
+                  <value name="VALUE">
+                    <block type="text" id="s_/$:Y=r|dkZUHr*NY:t">
+                      <field name="TEXT">48%</field>
+                    </block>
+                  </value>
+                  <value name="ID">
+                    <shadow type="text" id="tq_*BGt#x=2/K3dbC#W=">
+                      <field name="TEXT">enterVR</field>
+                    </shadow>
+                  </value>
+                  <next>
+                    <block type="checkVRMode" id="Rbwr,E!Xem9WyMA1+3SE">
+                      <statement name="DO_AVAIL">
+                        <block type="setHTMLElemAttribute" id=":ifGvRJqXG2AUFDU2/Q0">
+                          <field name="ATTRIBUTE">innerHTML</field>
+                          <field name="PARENT">FALSE</field>
+                          <value name="VALUE">
+                            <block type="text" id="kk?0wTPyB:P.h1qB~Lm;">
+                              <field name="TEXT">Enter VR</field>
+                            </block>
+                          </value>
+                          <value name="ID">
+                            <shadow type="text" id="HSZPu03%lO0_gY6hk0}-">
+                              <field name="TEXT">enterVR</field>
+                            </shadow>
+                          </value>
+                          <next>
+                            <block type="eventHTMLElem" id="m*DhEJ]8QhMp``..9JPa">
+                              <field name="EVENT">click</field>
+                              <field name="PARENT">FALSE</field>
+                              <value name="ID">
+                                <shadow type="text" id="V)r}@v~wBP4SRPzY@_z5">
+                                  <field name="TEXT">enterVR</field>
+                                </shadow>
+                              </value>
+                              <statement name="DO">
+                                <block type="enterVRMode" id="ekq)}Q|Lz-*hV|W._-ij">
+                                  <field name="REF_SPACE">SITTING</field>
+                                </block>
+                              </statement>
+                            </block>
+                          </next>
+                        </block>
+                      </statement>
+                      <statement name="DO_UNAVAIL">
+                        <block type="setHTMLElemAttribute" id="g1G0C_10lDl9:{Hz7VBi">
+                          <field name="ATTRIBUTE">innerHTML</field>
+                          <field name="PARENT">FALSE</field>
+                          <value name="VALUE">
+                            <block type="text" id="Tu(9E;Wg;I!-77+)EyK$">
+                              <field name="TEXT">WebXR Not Supported</field>
+                            </block>
+                          </value>
+                          <value name="ID">
+                            <shadow type="text" id="d?hWChGPFRWSKp$4J1~a">
+                              <field name="TEXT">enterVR</field>
+                            </shadow>
+                          </value>
+                        </block>
+                      </statement>
+                    </block>
+                  </next>
+                </block>
+              </next>
             </block>
-          </statement>
+          </next>
         </block>
-      </statement>
+      </next>
     </block>
   </tab>
-  <editorsettings viewport-x="1134" viewport-y="28" viewport-w="768" viewport-h="469" viewport-hidden="false" toolbox-library-mode="false" toolbox-minimized-mode="false"></editorsettings>
+  <editorsettings viewport-x="1134" viewport-y="28" viewport-w="768" viewport-h="463.5" viewport-hidden="false" toolbox-library-mode="false" toolbox-minimized-mode="false"></editorsettings>
 </xml>

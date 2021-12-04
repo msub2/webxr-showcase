@@ -18,3 +18,7 @@
 # Wonderland
 **/Wonderland/deploy/
 **/cache
+
+# Verge3D
+.blend1
+**/puzzles_backup

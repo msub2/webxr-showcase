@@ -12,7 +12,7 @@ var CONTAINER_ID = 'v3d-container';
 
     var PUZZLES_DIR = '/puzzles/';
     var logicURL = params.logic ? params.logic : '__LOGIC__visual_logic.js'.replace('__LOGIC__', '');
-    var sceneURL = params.load ? params.load : '__URL__Hello World.glb'.replace('__URL__', '');
+    var sceneURL = params.load ? params.load : '__URL__1 - Hello World.gltf'.replace('__URL__', '');
     if (!sceneURL) {
         console.log('No scene URL specified');
         return;
