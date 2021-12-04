@@ -238,8 +238,6 @@ customElements.define('content-switch', ContentSwitch);
   '4 - Hands On',
 ];
 
-var CURRENT_PROJECT = sessionStorage.getItem('project') || PROJECT_NAMES[0];
-
 class ProjectButton {
   constructor(project) {
     const wrapper = document.createElement('li');
@@ -247,8 +245,6 @@ class ProjectButton {
 
     button.innerText = project;
     button.onclick = () => {
-      CURRENT_PROJECT = project;
-      sessionStorage.setItem('project', project);
       PROJECT_NAMES.forEach(project => {
         this.parent.projectMap[project].wrapper.className = '';
       });
@@ -279,7 +275,8 @@ class ProjectNav extends HTMLElement {
       const projectButton = new ProjectButton(project);
       this.projectMap[project] = projectButton;
       projectButton['parent'] = this;
-      if (project == CURRENT_PROJECT) projectButton.load();
+      const proj = PROJECT_NAMES[location.toString().split('/').slice(-2)[0]];
+      if (project == proj) projectButton.load();
       wrapper.appendChild(projectButton.wrapper);
     });
 
