@@ -10,12 +10,14 @@ AFRAME.registerComponent('smooth-locomotion', {
 
     // Get scene element references
     this.player = document.querySelector('#player');
-    this.head = player.querySelector('#head');
+    this.head = document.querySelector('#head');
     var leftHand = document.querySelector('#leftHand');
 
-    // Set up variables to store controller input data
+    // Set up variables to store controller input data and three.js data
     this.moveX = 0;
     this.moveY = 0;
+    this.moveVector = new THREE.Vector3();
+    this.headRot = new THREE.Euler(0, 0, 0, 'YXZ'); // Y rotations will be applied first
 
     // Hook up event listeners for the relevant movement input events.
     // Will try to read thumbstick input before trackpad input.
@@ -30,19 +32,18 @@ AFRAME.registerComponent('smooth-locomotion', {
 
     // If there's input coming in, move the player
     if (this.moveX + this.moveY != 0)
-      this.move(this.moveX, this.moveY, timeDelta / 1000);
+      this.move(timeDelta / 1000);
   },
-  move: function (x, y, dt) {
-    let direction = [x, 0, y]; // Initial move vector from the controller
-    let headRot = head.object3D.quaternion.toArray(); // Head rotation as quaternion so glMatrix can read it
-
-    // Rotate our input vector by our head rotation, then scale by delta time and speed
-    glMatrix.vec3.transformQuat(direction, direction, headRot);
-    glMatrix.vec3.scale(direction, direction, dt * this.data.speed);
-
-    // Move player
-    player.object3D.translateX(direction[0]);
-    if (this.data.fly) player.object3D.translateY(direction[1]);
-    player.object3D.translateZ(direction[2]);
+  move: function (dt) {
+    // Get our initial move vector and normalize it
+    this.moveVector.set(this.moveX, 0, this.moveY).normalize(); 
+    // Store our head rotation into our Euler variable
+    this.headRot.setFromQuaternion(head.object3D.quaternion);
+    // If we don't want to fly, this zeroes out any movement that isn't side-to-side
+    if (!this.data.fly) this.headRot.set(0, this.headRot.y, 0);
+    // Scale our movement vector based on speed
+    const scaledMovement = this.moveVector.multiplyScalar(this.data.speed * dt);
+    // Adjust our vector based on where we're looking and then move the player
+    player.object3D.position.add(scaledMovement.applyEuler(this.headRot));
   },
 });
