@@ -120,7 +120,6 @@ const CONTENT_NAMES = [
   'Godot',
   'JanusWeb',
   'LÖVR',
-  'nunuStudio',
   'p5.xr',
   'Playcanvas',
   'Sumerian',

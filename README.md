@@ -15,7 +15,6 @@ Note that this is simply the current list, and as new engines/frameworks become 
 - [Godot](https://godotengine.org/)
 - [JanusWeb](https://github.com/jbaicoianu/janusweb)
 - [LÖVR](https://lovr.org/)
-- [nunuStudio](https://www.nunustudio.org)
 - [p5.xr](https://p5xr.org/#/)
 - [Playcanvas](https://playcanvas.com/)
 - [Sumerian](https://aws.amazon.com/sumerian/)
