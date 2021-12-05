@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>First Steps (three.js)</title>
+  </head>
+  <body style="margin: 0;">
+    <script type="module">
+      import * as THREE from 'https://cdn.skypack.dev/three@0.135.0';
+      import { VRButton } from 'https://cdn.skypack.dev/three@0.135.0/examples/jsm/webxr/VRButton.js';
+      import Controls from './controls.js';
+
+      const scene = new THREE.Scene();
+      scene.background = new THREE.Color('blue');
+
+      const camera = new THREE.PerspectiveCamera(75, window.innerWidth / window.innerHeight, 0.1, 1000);
+
+      const renderer = new THREE.WebGLRenderer();
+      renderer.setSize(window.innerWidth, window.innerHeight);
+      document.body.appendChild(renderer.domElement);
+
+      const geometry = new THREE.PlaneGeometry(10, 10);
+      const material = new THREE.MeshBasicMaterial({ color: 'green' });
+      const ground = new THREE.Mesh(geometry, material);
+      ground.rotateX(THREE.MathUtils.degToRad(-90));
+      scene.add(ground);
+
+      document.body.appendChild(VRButton.createButton(renderer));
+      renderer.xr.enabled = true;
+
+      const controls = new Controls(renderer);
+      const player = new THREE.Group();
+      player.add(camera);
+      player.add(controls.controller1)
+      player.add(controls.controller1Grip);
+      player.add(controls.controller2);
+      player.add(controls.controller2Grip);
+      scene.add(player);
+
+      const moveVector = new THREE.Vector3();
+      const headRot = new THREE.Euler(0, 0, 0, 'YXZ'); // Y rotations will be applied first
+      const fly = false;
+      const speed = 0.05;
+
+      const move = () => {
+        controls.getInput();
+        
+        if (controls.input.left.axes.length < 4) return; // Don't try to move if there's no input
+        
+        let x = controls.input.left.axes[2];
+        let z = controls.input.left.axes[3];
+        
+        // Get our initial move vector and normalize it
+        moveVector.set(x, 0, z).normalize(); 
+        // Store our head rotation into our Euler variable
+        headRot.setFromQuaternion(camera.quaternion);
+        // If we don't want to fly, this zeroes out any movement that isn't side-to-side
+        if (!fly) headRot.set(0, headRot.y, 0);
+        // Scale our movement vector based on speed
+        const scaledMovement = moveVector.multiplyScalar(speed);
+        // Adjust our vector based on where we're looking and then move the player
+        player.position.add(scaledMovement.applyEuler(headRot));
+    
+        player.updateMatrixWorld();
+      }
+
+      renderer.setAnimationLoop(() => {
+        renderer.render(scene, camera);
+        move();
+      });
+    </script>
+  </body>
+</html>
