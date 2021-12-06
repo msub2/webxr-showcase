@@ -121,7 +121,7 @@ const CONTENT_NAMES = [
   'JanusWeb',
   'LÖVR',
   'p5.xr',
-  'Playcanvas',
+  'PlayCanvas',
   'Sumerian',
   'three.js',
   'Unity',
