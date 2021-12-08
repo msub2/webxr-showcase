@@ -8,7 +8,7 @@ In cases where a project for an engine/framework cannot easily be added to Githu
 
 ## List of WebXR engines/frameworks included here
 
-Note that this is simply the current list, and as new engines/frameworks become prevalent they may be added here as well.
+Note that this list reflects engines, frameworks, and libraries that I feel represent the current landscape of WebXR content creation tools. As new tools come up they may be added, and as others become less able to be recommended they will be removed.
 
 - [A-Frame](https://aframe.io/)
 - [babylon.js](https://www.babylonjs.com/)
@@ -17,7 +17,6 @@ Note that this is simply the current list, and as new engines/frameworks become 
 - [LÖVR](https://lovr.org/)
 - [p5.xr](https://p5xr.org/#/)
 - [PlayCanvas](https://playcanvas.com/)
-- [Sumerian](https://aws.amazon.com/sumerian/)
 - [three.js](https://threejs.org/)
 - [Unity](https://unity.com/)
 - [Verge3D](https://www.soft8soft.com/verge3d/)
