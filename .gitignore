@@ -13,7 +13,20 @@
 **/.vs/
 *.vsconfig
 *.vscode
+*.csproj
+*.unityproj
 *.sln
+*.suo
+*.tmp
+*.user
+*.userprefs
+*.pidb
+*.booproj
+*.svd
+*.pdb
+*.mdb
+*.opendb
+*.VC.db
 
 # Wonderland
 **/Wonderland/deploy/
