@@ -1,0 +1,662 @@
+{
+    "objects": {
+        "14": {
+            "name": "Player",
+            "components": [
+                {
+                    "type": "wasd-controls",
+                    "wasd-controls": {
+                        "headObject": "17"
+                    }
+                }
+            ],
+            "transformation": [
+                0.9999998,
+                0.0,
+                0.0,
+                0.0,
+                0.0,
+                1.0,
+                0.0,
+                0.0,
+                0.0,
+                0.0,
+                0.9999998,
+                0.0,
+                0.0,
+                0.0,
+                0.0,
+                1.0
+            ]
+        },
+        "15": {
+            "name": "FloorPlane",
+            "components": [
+                {
+                    "type": "mesh",
+                    "mesh": {
+                        "mesh": "7",
+                        "material": "50"
+                    }
+                }
+            ],
+            "transformation": [
+                4.0,
+                0.0,
+                0.0,
+                0.0,
+                0.0,
+                -0.0016164,
+                -3.9999997,
+                0.0,
+                0.0,
+                3.9999997,
+                -0.0016164,
+                0.0,
+                0.0,
+                0.0,
+                1.192092895507813e-7,
+                1.0
+            ]
+        },
+        "16": {
+            "name": "Cube",
+            "components": [
+                {
+                    "type": "mesh",
+                    "mesh": {
+                        "mesh": "8",
+                        "material": "22"
+                    }
+                }
+            ],
+            "transformation": [
+                0.5,
+                0.0,
+                0.0,
+                0.0,
+                0.0,
+                0.5,
+                0.0,
+                0.0,
+                0.0,
+                0.0,
+                0.5,
+                0.0,
+                2.9802322387695329e-8,
+                0.4999999,
+                5.960464477539065e-8,
+                1.0
+            ],
+            "deleted": true
+        },
+        "17": {
+            "name": "NonVrCamera",
+            "parent": "14",
+            "components": [
+                {
+                    "type": "view"
+                },
+                {
+                    "type": "mouse-look"
+                }
+            ]
+        },
+        "18": {
+            "name": "EyeLeft",
+            "parent": "14",
+            "components": [
+                {
+                    "type": "view"
+                },
+                {
+                    "type": "input",
+                    "input": {
+                        "type": "eye left"
+                    }
+                }
+            ]
+        },
+        "19": {
+            "name": "EyeRight",
+            "parent": "14",
+            "components": [
+                {
+                    "type": "view"
+                },
+                {
+                    "type": "input",
+                    "input": {
+                        "type": "eye right"
+                    }
+                }
+            ],
+            "transformation": [
+                1.0,
+                0.0,
+                0.0,
+                0.0,
+                0.0,
+                1.0,
+                0.0,
+                0.0,
+                0.0,
+                0.0,
+                1.0,
+                0.0,
+                0.0,
+                0.0,
+                0.0,
+                1.0
+            ]
+        },
+        "21": {
+            "name": "Light",
+            "components": [
+                {
+                    "type": "light",
+                    "light": {
+                        "attenuation": 0.1
+                    }
+                }
+            ],
+            "transformation": [
+                1.0,
+                0.0,
+                0.0,
+                0.0,
+                0.0,
+                1.0,
+                0.0,
+                0.0,
+                0.0,
+                0.0,
+                1.0,
+                0.0,
+                0.0,
+                3.0,
+                2.0,
+                1.0
+            ]
+        },
+        "23": {
+            "name": "Light.000",
+            "components": [
+                {
+                    "type": "light",
+                    "light": {
+                        "attenuation": 0.1
+                    }
+                }
+            ],
+            "transformation": [
+                1.0,
+                0.0,
+                0.0,
+                0.0,
+                0.0,
+                1.0,
+                0.0,
+                0.0,
+                0.0,
+                0.0,
+                1.0,
+                0.0,
+                -1.0,
+                3.0,
+                -1.0,
+                1.0
+            ]
+        },
+        "24": {
+            "name": "Cone",
+            "components": [
+                {
+                    "type": "mesh",
+                    "mesh": {
+                        "mesh": "10",
+                        "material": "25"
+                    }
+                }
+            ],
+            "transformation": [
+                1.0,
+                0.0,
+                0.0,
+                0.0,
+                0.0,
+                1.0,
+                0.0,
+                0.0,
+                0.0,
+                0.0,
+                1.0,
+                0.0,
+                1.5,
+                1.0,
+                -1.4901161193847657e-8,
+                1.0
+            ],
+            "deleted": true
+        },
+        "27": {
+            "name": "Sphere",
+            "components": [
+                {
+                    "type": "mesh",
+                    "mesh": {
+                        "mesh": "9",
+                        "material": "26"
+                    }
+                }
+            ],
+            "transformation": [
+                0.75,
+                0.0,
+                0.0,
+                0.0,
+                0.0,
+                0.75,
+                0.0,
+                0.0,
+                0.0,
+                0.0,
+                0.75,
+                0.0,
+                0.4999999,
+                0.75,
+                -1.25,
+                1.0
+            ],
+            "deleted": true
+        },
+        "48": {
+            "name": "LeftController",
+            "parent": "14",
+            "components": [
+                {
+                    "type": "input",
+                    "input": {
+                        "type": "hand left"
+                    }
+                },
+                {
+                    "type": "controller",
+                    "controller": {
+                        "player": "14",
+                        "head": "18"
+                    }
+                }
+            ]
+        },
+        "49": {
+            "name": "Mesh",
+            "parent": "48",
+            "components": [
+                {
+                    "type": "mesh",
+                    "mesh": {
+                        "mesh": "8",
+                        "material": "20"
+                    }
+                }
+            ],
+            "transformation": [
+                0.1,
+                0.0,
+                0.0,
+                0.0,
+                0.0,
+                0.1,
+                0.0,
+                0.0,
+                0.0,
+                0.0,
+                0.1,
+                0.0,
+                0.0,
+                0.0,
+                0.0,
+                1.0
+            ]
+        },
+        "51": {
+            "name": "RightController",
+            "parent": "14",
+            "components": [
+                {
+                    "type": "input",
+                    "input": {
+                        "type": "hand right"
+                    }
+                }
+            ]
+        },
+        "52": {
+            "name": "Mesh",
+            "parent": "51",
+            "components": [
+                {
+                    "type": "mesh",
+                    "mesh": {
+                        "mesh": "8",
+                        "material": "20"
+                    }
+                }
+            ],
+            "transformation": [
+                0.1,
+                0.0,
+                0.0,
+                0.0,
+                0.0,
+                0.1,
+                0.0,
+                0.0,
+                0.0,
+                0.0,
+                0.1,
+                0.0,
+                0.0,
+                0.0,
+                0.0,
+                1.0
+            ]
+        }
+    },
+    "meshes": {
+        "7": {
+            "link": {
+                "name": "PrimitivePlane",
+                "file": "default"
+            }
+        },
+        "8": {
+            "link": {
+                "name": "PrimitiveCube",
+                "file": "default"
+            }
+        },
+        "9": {
+            "link": {
+                "name": "PrimitiveSphere",
+                "file": "default"
+            }
+        },
+        "10": {
+            "link": {
+                "name": "PrimitiveCone",
+                "file": "default"
+            }
+        },
+        "11": {
+            "link": {
+                "name": "PrimitiveCylinder",
+                "file": "default"
+            }
+        },
+        "12": {
+            "link": {
+                "name": "PrimitiveCircle",
+                "file": "default"
+            }
+        }
+    },
+    "textures": {
+        "t0": {
+            "link": {
+                "name": "DefaultFont",
+                "file": "default"
+            },
+            "name": "DefaultFont"
+        }
+    },
+    "images": {
+        "f0": {
+            "link": {
+                "name": "DefaultFontImage",
+                "file": "default"
+            }
+        }
+    },
+    "materials": {
+        "DefaultFontMaterial": {
+            "link": {
+                "name": "DefaultFontMaterial",
+                "file": "default"
+            }
+        },
+        "20": {
+            "name": "White",
+            "Phong": {
+                "specularColor": [
+                    9.999899930335233e-7,
+                    9.99993744699168e-7,
+                    9.999999974752428e-7,
+                    1.0
+                ],
+                "shininess": 1,
+                "diffuseColor": [
+                    1.0,
+                    1.0,
+                    1.0,
+                    1.0
+                ]
+            },
+            "pipeline": "42"
+        },
+        "22": {
+            "name": "Pink",
+            "Phong": {
+                "diffuseColor": [
+                    0.9098039,
+                    0.0,
+                    0.5411764,
+                    1.0
+                ],
+                "specularColor": [
+                    9.999899930335233e-7,
+                    9.999911299019005e-7,
+                    9.999999974752428e-7,
+                    1.0
+                ],
+                "shininess": 10,
+                "ambientColor": [
+                    0.317647,
+                    0.0,
+                    0.2165777,
+                    1.0
+                ]
+            }
+        },
+        "25": {
+            "name": "Yellow",
+            "Phong": {
+                "diffuseColor": [
+                    1.0,
+                    0.8039215,
+                    0.0,
+                    1.0
+                ],
+                "specularColor": [
+                    9.999999974752428e-7,
+                    9.999899930335233e-7,
+                    9.999899930335233e-7,
+                    1.0
+                ],
+                "ambientColor": [
+                    0.3843137,
+                    0.3089579,
+                    0.0,
+                    1.0
+                ]
+            }
+        },
+        "26": {
+            "name": "Green",
+            "Phong": {
+                "diffuseColor": [
+                    0.1529411,
+                    0.7882353,
+                    0.5411764,
+                    1.0
+                ],
+                "specularColor": [
+                    9.999999974752428e-7,
+                    9.999899930335233e-7,
+                    9.999899930335233e-7,
+                    1.0
+                ],
+                "ambientColor": [
+                    0.0,
+                    0.2352941,
+                    0.1437908,
+                    1.0
+                ]
+            }
+        },
+        "50": {
+            "name": "Ground",
+            "Phong": {
+                "diffuseColor": [
+                    0.0,
+                    1.0,
+                    0.0,
+                    1.0
+                ]
+            }
+        }
+    },
+    "shaders": {
+        "32": {
+            "link": {
+                "name": "DistanceFieldVector",
+                "file": "default"
+            }
+        },
+        "34": {
+            "link": {
+                "name": "Dynamic",
+                "file": "default"
+            }
+        },
+        "35": {
+            "link": {
+                "name": "Flat",
+                "file": "default"
+            }
+        },
+        "38": {
+            "link": {
+                "name": "MeshVisualizer",
+                "file": "default"
+            }
+        },
+        "40": {
+            "link": {
+                "name": "Static",
+                "file": "default"
+            }
+        },
+        "41": {
+            "link": {
+                "name": "Phong",
+                "file": "default"
+            }
+        },
+        "44": {
+            "link": {
+                "name": "Skinning",
+                "file": "default"
+            }
+        },
+        "45": {
+            "link": {
+                "name": "Particle",
+                "file": "default"
+            }
+        }
+    },
+    "settings": {
+        "project": {
+            "name": "First Steps",
+            "version": [
+                0,
+                8,
+                8,
+                8
+            ]
+        },
+        "vr": {
+            "leftEyeObject": "18",
+            "rightEyeObject": "19"
+        },
+        "scripting": {
+            "sourcePaths": [
+                "/js/editor-components-bundle.js",
+                "js/",
+                "scripts"
+            ]
+        },
+        "rendering": {
+            "clearColor": [
+                0.0,
+                0.0,
+                1.0,
+                1.0
+            ]
+        }
+    },
+    "animations": {},
+    "skins": {},
+    "pipelines": {
+        "33": {
+            "link": {
+                "name": "DistanceFieldVector",
+                "file": "default"
+            }
+        },
+        "36": {
+            "link": {
+                "name": "Flat Opaque",
+                "file": "default"
+            }
+        },
+        "37": {
+            "link": {
+                "name": "Flat Opaque Textured",
+                "file": "default"
+            }
+        },
+        "39": {
+            "link": {
+                "name": "MeshVisualizer",
+                "file": "default"
+            }
+        },
+        "42": {
+            "link": {
+                "name": "Phong Opaque",
+                "file": "default"
+            }
+        },
+        "43": {
+            "link": {
+                "name": "Phong Opaque Textured",
+                "file": "default"
+            }
+        },
+        "46": {
+            "link": {
+                "name": "Foliage",
+                "file": "default"
+            }
+        },
+        "47": {
+            "link": {
+                "name": "Particle",
+                "file": "default"
+            }
+        }
+    }
+}

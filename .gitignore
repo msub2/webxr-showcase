@@ -31,6 +31,7 @@
 # Wonderland
 **/Wonderland/deploy/
 **/cache
+imgui.ini
 
 # Verge3D
 .blend1
