@@ -1,6 +1,6 @@
 <xml xmlns="http://www.w3.org/1999/xhtml">
   <tab name="init" type="InitTab" active="false" scrollx="874.9999999999998" scrolly="425.4999999999999" scale="0.9"></tab>
-  <tab name="main" type="MainTab" active="true" scrollx="35.000396728515625" scrolly="21.097396850585938" scale="0.6056854783403958">
+  <tab name="main" type="MainTab" active="true" scrollx="75.250732421875" scrolly="-198.41844177246094" scale="0.7655186873167403">
     <variables xmlns="https://developers.google.com/blockly/xml">
       <variable id="2epfT^%-x_.%d]@eL$pb" type="">x</variable>
       <variable id="iBdtXMu6H_f+U}.#5=AI" type="">y</variable>
@@ -76,31 +76,14 @@
                         <block type="variables_set" id="=zeN0i0[{^v1x4ecZVpM">
                           <field name="VAR" id="3DCnjKP6Z[|UF^c7@!:}">orientation</field>
                           <value name="VALUE">
-                            <block type="createVector" id="Jpwj]x?l441~iIigzw%}">
-                              <value name="X">
-                                <shadow type="math_number" id="SLAE96/xq,h}vs-FU4Oe">
-                                  <field name="NUM">0</field>
+                            <block type="getObjTransform" id="x,{c_n-c!5j1m8/.^30o">
+                              <mutation xmlns="http://www.w3.org/1999/xhtml" useworldspace="false"></mutation>
+                              <field name="MODE">rotation</field>
+                              <field name="COORD">xyz</field>
+                              <value name="TARGETOBJ">
+                                <shadow type="objectList" id="cyK(:);A=Qdy_x/CFJX)">
+                                  <field name="FIELDNAME">__DEFAULT_CAMERA__</field>
                                 </shadow>
-                              </value>
-                              <value name="Y">
-                                <shadow type="math_number" id="*3U0+5#dqz8(/j$i0,rm">
-                                  <field name="NUM">0</field>
-                                </shadow>
-                              </value>
-                              <value name="Z">
-                                <shadow type="math_number" id=":N(?7.Fv+Lw~aEE|Mh/j">
-                                  <field name="NUM">0</field>
-                                </shadow>
-                                <block type="getObjTransform" id="x,{c_n-c!5j1m8/.^30o">
-                                  <mutation xmlns="http://www.w3.org/1999/xhtml" useworldspace="false"></mutation>
-                                  <field name="MODE">rotation</field>
-                                  <field name="COORD">z</field>
-                                  <value name="TARGETOBJ">
-                                    <shadow type="objectList" id="cyK(:);A=Qdy_x/CFJX)">
-                                      <field name="FIELDNAME">__DEFAULT_CAMERA__</field>
-                                    </shadow>
-                                  </value>
-                                </block>
                               </value>
                             </block>
                           </value>
@@ -304,16 +287,6 @@
                                                                   <field name="VAR" id="T~4=F:)Mtur;xPP-huGw">moveVector</field>
                                                                 </block>
                                                               </value>
-                                                              <next>
-                                                                <block type="execScript" id="8Uh^*wy}x8v)uweAx!a/">
-                                                                  <value name="TEXT">
-                                                                    <shadow type="textMultiline" id="GgQV=^P1m_9*jIp.$1^4">
-                                                                      <field name="HIGHLIGHT_MODE">javascript</field>
-                                                                      <field name="TEXT">// Built-in variables: app, v3d, VARS, PROC&#10;app.scene.getObjectByName('Player').updateMatrixWorld(true);</field>
-                                                                    </shadow>
-                                                                  </value>
-                                                                </block>
-                                                              </next>
                                                             </block>
                                                           </next>
                                                         </block>
