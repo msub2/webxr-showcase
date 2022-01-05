@@ -22,7 +22,7 @@ public class SmoothLocomotion : MonoBehaviour
     {
         player = WebXRManager.Instance.gameObject;
         cameraGroup = WebXRManager.Instance.GetComponentInChildren<WebXRCamera>();
-        camera = cameraGroup.GetCamera(WebXRCamera.CameraID.LeftVR).transform;
+        camera = cameraGroup.transform.GetChild(transform.childCount - 1);
         controller = GetComponent<WebXRController>();
     }
 
