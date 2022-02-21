@@ -49,6 +49,12 @@ main {
     flex: auto;
 }
 
+.content {
+    display: flex;
+    flex: auto;
+    flex-direction: column;
+}
+
 source-code {
     text-align: left;
 }
