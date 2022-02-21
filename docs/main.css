@@ -44,9 +44,9 @@ m2-header {
     flex: 0 0 100%;
 }
 
-.main {
-    width: 66vw;
-    margin: 0 auto 0 auto;
+main {
+    display: flex;
+    flex: auto;
 }
 
 source-code {
