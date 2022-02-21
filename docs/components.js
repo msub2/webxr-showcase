@@ -81,11 +81,11 @@ customElements.define('m2-header', M2Header);
  */
 const LATEST_SCRIPT_TAGS = {
   aframe:
-    '<script src="https://aframe.io/releases/1.2.0/aframe.min.js"></script>',
+    '<script src="https://aframe.io/releases/1.3.0/aframe.min.js"></script>',
   babylon: '<script src="https://cdn.babylonjs.com/babylon.js"></script>',
   janusweb: '<script src="https://web.janusvr.com/janusweb.js"></script>',
   p5xr: '<script src="https://cdn.jsdelivr.net/npm/p5@1.4.0/lib/p5.js"></script>\n<script src="https://cdn.jsdelivr.net/npm/p5.xr@0.4.0/dist/p5xr.min.js"></script>',
-  threejs: `<script type="module">\nimport * as THREE from 'https://cdn.skypack.dev/three@0.135.0';\n</script>`
+  threejs: `<script type="module">\nimport * as THREE from 'https://cdn.skypack.dev/three@0.137.0';\n</script>`
 };
 
 class LatestScriptTag extends HTMLElement {
@@ -128,6 +128,12 @@ const CONTENT_NAMES = [
   'Wonderland Engine'
 ];
 
+// Set up some variables to track active content loaded and set content from URL param
+// This will allow direct linking to content so I can stop telling people to click the Unity button
+const contentQuery = new URLSearchParams(window.location.search).get('content');
+if (contentQuery != null && CONTENT_NAMES.includes(contentQuery)) {
+  sessionStorage.setItem('content', contentQuery);
+}
 var CURRENT_CONTENT = sessionStorage.getItem('content') || CONTENT_NAMES[0];
 
 class ContentButton {
@@ -155,6 +161,14 @@ class ContentButton {
     contentDiv.innerHTML = '';
     contentDiv.appendChild(template);
     this.wrapper.className = 'active-content';
+    this.updateURLParams(content);
+  }
+  updateURLParams(content) {
+    const { protocol, host, pathname, search } = window.location;
+    const params = new URLSearchParams(search);
+    params.set('content', content);
+    const newURL = `${protocol}//${host}${pathname}?${params.toString()}`;
+    window.history.pushState({ path: newURL }, '', newURL);
   }
 }
 
