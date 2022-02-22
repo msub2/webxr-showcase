@@ -53,6 +53,7 @@ main {
     display: flex;
     flex: auto;
     flex-direction: column;
+    margin: 0 1em 0 1em;
 }
 
 source-code {

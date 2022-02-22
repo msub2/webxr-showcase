@@ -36,3 +36,7 @@ imgui.ini
 # Verge3D
 .blend1
 **/puzzles_backup
+
+# Node
+/**/node_modules
+/**/package-lock.json

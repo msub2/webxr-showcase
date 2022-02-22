@@ -122,6 +122,7 @@ const CONTENT_NAMES = [
   'LÖVR',
   'p5.xr',
   'PlayCanvas',
+  'React XR',
   'three.js',
   'Unity',
   'Verge3D',
