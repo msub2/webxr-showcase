@@ -1,0 +1,64 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no, user-scalable=no">
+  <meta name="theme-color" content="#000000">
+
+  <title>Project</title>
+
+  <style>
+    html, body, #rogue-app {
+      margin: 0;
+      width: 100%;
+      height: 100%;
+      -webkit-user-select: none;
+      -ms-user-select: none;
+      user-select: none;
+      background-color: #252933;
+      overflow: hidden;
+    }
+    #rogue-engine-loading-logo {
+      color: white;
+      animation-name: rogueengineloadinglogo;
+      animation-duration: 2s;
+      animation-iteration-count: infinite;
+      transform-origin: 50% 50%;
+      display: inline-block;
+      top: calc(50% - 50px);
+      right: calc(50% - 50px);
+      height: 100px;
+      width: 100px;
+      position: absolute;
+    }
+    @keyframes rogueengineloadinglogo {
+        0% {
+            transform: rotate(0deg);
+        }
+        100% {
+            transform: rotate(360deg);
+        }
+    }
+  </style>
+</head>
+<body>
+  <noscript>
+    You need to enable JavaScript to run this app.
+  </noscript>
+  <img id="rogue-engine-loading-logo" src="Project_DATA/RogueEngineLogo.svg">
+  <div id="rogue-app"></div>
+  <script>
+    if (global === undefined) {
+      var global = window;
+    }
+    function onRogueScriptLoaded() {
+      var onPlay = window["rogue-engine"].Runtime.onPlay(()=>{
+        document.getElementById("rogue-engine-loading-logo").remove()
+        onPlay.stop();
+      });
+    }
+  </script>
+  <script onload="onRogueScriptLoaded()" src="Project_DATA/build.js"></script>
+</body>
+</html>

@@ -40,3 +40,6 @@ imgui.ini
 # Node
 /**/node_modules
 /**/package-lock.json
+
+# Rogue Engine
+/**/Rogue Engine/**/Build

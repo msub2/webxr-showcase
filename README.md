@@ -18,6 +18,7 @@ Note that this list reflects engines, frameworks, and libraries that I feel repr
 - [p5.xr](https://p5xr.org/#/)
 - [PlayCanvas](https://playcanvas.com/)
 - [React XR](https://github.com/pmndrs/react-xr)
+- [Rogue Engine](https://rogueengine.io/)
 - [three.js](https://threejs.org/)
 - [Unity](https://unity.com/)
 - [Verge3D](https://www.soft8soft.com/verge3d/)
