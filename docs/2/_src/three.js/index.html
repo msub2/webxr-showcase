@@ -2,11 +2,19 @@
 <html>
   <head>
     <title>First Steps (three.js)</title>
+    <script type="importmap">
+      {
+        "imports": {
+          "three": "https://unpkg.com/three@0.146.0/build/three.module.js",
+          "three/": "https://unpkg.com/three@0.146.0/"
+        }
+      }
+    </script>
   </head>
   <body style="margin: 0;">
     <script type="module">
-      import * as THREE from 'https://cdn.skypack.dev/three@0.137.0';
-      import { VRButton } from 'https://cdn.skypack.dev/three@0.136.0/examples/jsm/webxr/VRButton.js';
+      import * as THREE from 'three';
+      import { VRButton } from 'three/examples/jsm/webxr/VRButton.js';
       import Controls from './controls.js';
 
       const scene = new THREE.Scene();

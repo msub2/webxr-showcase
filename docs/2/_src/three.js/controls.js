@@ -1,4 +1,4 @@
-import * as THREE from 'https://cdn.skypack.dev/three@0.135.0';
+import * as THREE from 'three';
 
 export default class Controls {
   constructor(renderer) {
@@ -17,7 +17,7 @@ export default class Controls {
     this.renderer = renderer;
 
     // Connect up controllers and visualize with cubes
-    const hand = new THREE.BoxBufferGeometry(0.1, 0.1, 0.1);
+    const hand = new THREE.BoxGeometry(0.1, 0.1, 0.1);
     const handMaterial = new THREE.MeshBasicMaterial();
 
     this.controller1 = renderer.xr.getController(0);
