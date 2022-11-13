@@ -14,7 +14,6 @@ Note that this list reflects engines, frameworks, and libraries that I feel repr
 - [babylon.js](https://www.babylonjs.com/)
 - [Godot](https://godotengine.org/)
 - [JanusWeb](https://github.com/jbaicoianu/janusweb)
-- [LÖVR](https://lovr.org/)
 - [p5.xr](https://p5xr.org/#/)
 - [PlayCanvas](https://playcanvas.com/)
 - [React XR](https://github.com/pmndrs/react-xr)

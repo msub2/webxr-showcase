@@ -119,7 +119,6 @@ const CONTENT_NAMES = [
   'babylon.js',
   'Godot',
   'JanusWeb',
-  'LÖVR',
   'p5.xr',
   'PlayCanvas',
   'React XR',
