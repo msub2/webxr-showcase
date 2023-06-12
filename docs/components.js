@@ -386,3 +386,28 @@ class SourceCode extends HTMLElement {
   }
 }
 customElements.define('source-code', SourceCode);
+
+window.unregisterCrossOriginWorker = () => {
+  navigator.serviceWorker.getRegistrations().then(async registrations => {
+    if (registrations[0]) {
+      await registrations[0].unregister();
+      window.location.reload();
+    }
+  });
+}
+
+const observeUrlChange = () => {
+  let oldHref = document.location.href;
+  const body = document.querySelector("body");
+  const observer = new MutationObserver(mutations => {
+      mutations.forEach(() => {
+        if (oldHref !== document.location.href) {
+          oldHref = document.location.href;
+          window.unregisterCrossOriginWorker();
+        }
+      });
+    });
+    observer.observe(body, { childList: true, subtree: true });
+  };
+  
+  window.onload = observeUrlChange;
