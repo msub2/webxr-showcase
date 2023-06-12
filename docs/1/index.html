@@ -20,10 +20,7 @@
         <div id="content"></div>
   
         <template id="A-Frame">
-          <script>
-            window.coi = { shouldDeregister: () => true };
-            location.reload();
-          </script>
+          <script src="../coi-serviceworker.js">window.coi = { shouldDeregister: () => true };</script>
           <iframe src="_src/A-Frame/index.html"></iframe>
           <h2>Source Code</h2>
           <source-code link="_src/A-Frame/index.html"></source-code>
