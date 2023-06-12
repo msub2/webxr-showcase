@@ -20,7 +20,10 @@
         <div id="content"></div>
   
         <template id="A-Frame">
-          <script>window.coi = { shouldDeregister: () => true }</script>
+          <script>
+            window.coi = { shouldDeregister: () => true };
+            window.reload();
+          </script>
           <iframe src="_src/A-Frame/index.html"></iframe>
           <h2>Source Code</h2>
           <source-code link="_src/A-Frame/index.html"></source-code>
