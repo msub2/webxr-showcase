@@ -111,7 +111,14 @@ body {
 		</style>
 		<link id='-gd-engine-icon' rel='icon' type='image/png' href='index.icon.png' />
 <link rel='apple-touch-icon' href='index.apple-touch-icon.png'/>
-
+<script src="https://cdn.jsdelivr.net/npm/webxr-polyfill@latest/build/webxr-polyfill.min.js"></script>
+<script>
+var polyfill = new WebXRPolyfill();
+</script>
+<script src="https://cdn.jsdelivr.net/npm/webxr-layers-polyfill@latest/build/webxr-layers-polyfill.min.js"></script>
+<script>
+var layersPolyfill = new WebXRLayersPolyfill();
+</script>
 	</head>
 	<body>
 		<canvas id="canvas">
