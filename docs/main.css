@@ -1,3 +1,7 @@
+a, a:visited, a:hover, a:active {
+    color: #dd4a4a;
+}
+
 body {
     color: white;
     background-color: black;
@@ -7,19 +11,12 @@ body {
     flex-wrap: wrap;
 }
 
-a, a:visited, a:hover, a:active {
-    color: #dd4a4a;
-}
-
-pre {
-    background-color: #222;
-    border: 1px solid #e3e3e3;
-    box-shadow: inset 0 1px 1px rgba(0, 0, 0, .05);
-    padding: 4px;
-}
-
 code {
-    text-align: left;    
+    text-align: left;
+}
+
+details {
+    margin: auto;
 }
 
 h1 {
@@ -35,25 +32,21 @@ li {
     text-align: left;
 }
 
-details {
-    margin: auto;
-}
-
-m2-header {
-    text-align: center;
-    flex: 0 0 100%;
-}
-
 main {
     display: flex;
     flex: auto;
 }
 
-.content {
-    display: flex;
-    flex: auto;
-    flex-direction: column;
-    margin: 0 1em 0 1em;
+pre {
+    background-color: #222;
+    border: 1px solid #e3e3e3;
+    box-shadow: inset 0 1px 1px rgba(0, 0, 0, .05);
+    padding: 4px;
+}
+
+m2-header {
+    text-align: center;
+    flex: 0 0 100%;
 }
 
 source-code {
@@ -63,4 +56,11 @@ source-code {
 .back {
     float: left;
     font-size: 1.5em;
+}
+
+.content {
+    display: flex;
+    flex: auto;
+    flex-direction: column;
+    margin: 0 1em 0 1em;
 }
