@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Hello WebXR (X3DOM)</title>
+  <script src='http://www.x3dom.org/download/x3dom.js'></script>
+  <style>
+    html, body {
+      margin: 0;
+      height: 100vh;
+      overflow: hidden;
+    }
+    x3d {
+      width: 100vw;
+      height: 100vh;
+    }
+    x3d > canvas {
+      width: 100%;
+      height: 100%;
+    }
+    .x3dom-vr {
+      width: 100px;
+      height: 50px;
+      position: fixed;
+      text-align: center;
+      line-height: 50px;
+      bottom: 5%;
+      left: calc(50% - 100px);
+      background-color: white;
+    }
+    .x3dom-vr::before {
+      content: 'Enter VR';
+    }
+  </style>
+</head>
+<body>
+  <X3D>
+    <Scene>
+      <Background skyColor="(0, 0, 1)"></Background>
+      <Transform rotation="1 0 0 -1.5707" scale="10 10 10">
+        <Shape>
+          <Appearance>
+            <Material diffuseColor="0 1 0"></Material>
+          </Appearance>
+          <Plane lit="true"></Plane>
+        </Shape>
+      </Transform>
+      <Viewpoint position="0 1.6 0" orientation="0 0 0 0" description="camera"></Viewpoint>
+      <DirectionalLight direction='0 -1 0' on="TRUE" intensity='1.0'></DirectionalLight>
+    </Scene>
+  </X3D>
+</body>
+</html>
