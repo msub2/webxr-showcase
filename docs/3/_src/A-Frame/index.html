@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <script src="https://aframe.io/releases/1.4.2/aframe.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/aframe-blink-controls/dist/aframe-blink-controls.min.js"></script>
+    <script src="controller.js"></script>
+    <title>On The Move (A-Frame)</title>
+  </head>
+  <body>
+    <a-scene>
+      <a-plane rotation="-90 0 0" color="green" height="10" width="10" ></a-plane>
+      <a-sky color="blue"></a-sky>
+      <a-entity id="player">
+        <a-camera id="head" wasd-controls look-controls></a-camera>
+        <a-entity id="leftHand" hand-controls="hand: left" smooth-locomotion="active: true"></a-entity>
+        <a-entity id="rightHand" hand-controls="hand: right" blink-controls="teleportOrigin: #head; snapTurn: false; rotateOnTeleport: false" turn-controls="turnType: snap"></a-entity>
+      </a-entity>
+    </a-scene>
+  </body>
+</html>
