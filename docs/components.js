@@ -374,6 +374,7 @@ class SourceCode extends HTMLElement {
           border: 1px solid #e3e3e3;
           box-shadow: inset 0 1px 1px rgba(0,0,0,.05);
           padding: 4px;
+          white-space: pre-wrap;
         }
 
         code {
