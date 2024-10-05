@@ -64,3 +64,7 @@ source-code {
     flex-direction: column;
     margin: 0 1em 0 1em;
 }
+
+.landing {
+    margin: 0 20vw;
+}
