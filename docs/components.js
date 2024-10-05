@@ -81,11 +81,11 @@ customElements.define('m2-header', M2Header);
  */
 const LATEST_SCRIPT_TAGS = {
   aframe:
-    '<script src="https://aframe.io/releases/1.4.2/aframe.min.js"></script>',
+    '<script src="https://aframe.io/releases/1.6.0/aframe.min.js"></script>',
   babylon: '<script src="https://cdn.babylonjs.com/babylon.js"></script>',
   janusweb: '<script src="https://web.janusvr.com/janusweb.js"></script>',
-  p5xr: '<script src="https://cdn.jsdelivr.net/npm/p5@1.4.0/lib/p5.js"></script>\n<script src="https://cdn.jsdelivr.net/npm/p5.xr@0.4.5/dist/p5xr.min.js"></script>',
-  threejs: `<script type="module">\nimport * as THREE from 'https://cdn.skypack.dev/three@0.152.0';\n</script>`,
+  p5xr: '<script src="https://cdn.jsdelivr.net/npm/p5@1.11.0/lib/p5.js"></script>\n<script src="https://cdn.jsdelivr.net/npm/p5.xr@0.5.0/dist/p5xr.min.js"></script>',
+  threejs: `<script type="module">\nimport * as THREE from 'https://cdn.skypack.dev/three@0.169.0';\n</script>`,
   x3dom: `<script src="https://x3dom.org/download/1.8.3/x3dom.js"></script>`
 };
 
