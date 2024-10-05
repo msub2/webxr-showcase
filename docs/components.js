@@ -264,7 +264,7 @@ class ProjectButton {
         this.parent.projectMap[project].wrapper.className = '';
       });
       window.open(`../${PROJECT_NAMES.indexOf(project)}`, '_self');
-    }    
+    }
     wrapper.appendChild(button);
     this.wrapper = wrapper;
     return this;

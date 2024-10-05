@@ -5,8 +5,8 @@
     <script type="importmap">
       {
         "imports": {
-          "three": "https://unpkg.com/three@0.146.0/build/three.module.js",
-          "three/": "https://unpkg.com/three@0.146.0/"
+          "three": "https://unpkg.com/three@0.169.0/build/three.module.js",
+          "three/": "https://unpkg.com/three@0.169.0/"
         }
       }
     </script>
@@ -20,6 +20,7 @@
       scene.background = new THREE.Color('blue');
 
       const camera = new THREE.PerspectiveCamera(75, window.innerWidth / window.innerHeight, 0.1, 1000);
+      camera.position.set(0, 1.6, 0);
 
       const renderer = new THREE.WebGLRenderer();
       renderer.setSize(window.innerWidth, window.innerHeight);
